@@ -13,6 +13,8 @@
 @interface LogInViewController () <FBLoginViewDelegate>
 @property (strong, nonatomic) IBOutlet FBLoginView *fbLogInView;
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *profilePictureView;
+@property (strong, nonatomic) id<FBGraphUser> loggedInUser;
+
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *continueButton;
 
@@ -24,13 +26,28 @@
 {
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
-
     //FirstTime Logging in
     self.nameLabel.text = @"Please Log In to continue";
     self.continueButton.hidden = YES;
 
     //requesting information
+    self.fbLogInView = [FBLoginView new];
     self.fbLogInView.readPermissions = @[@"public_profile", @"user_friends"];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    //TODO: doen'st work yet
+    FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+                                                  NSDictionary* result,
+                                                  NSError *error) {
+        NSArray* friends = [result objectForKey:@"data"];
+        NSLog(@"Found: %i friends", friends.count);
+        for (NSDictionary<FBGraphUser>* friend in friends) {
+            NSLog(@"I have a friend named %@ with id %@", friend.name, friend.objectID);
+        }
+    }];
 }
 
 #pragma mark - FBLoginViewDelegate
@@ -38,28 +55,12 @@
 {
     // This method will be called when the app got user information
 
-    //TODO: get public_profile that i need
-    //TODO: get friend list
-
-
     // "user" is what we got from "public_profile" readPermissions when logged in
     self.profilePictureView.profileID = user.objectID;
     self.nameLabel.text = user.name;
-
+    self.loggedInUser = user;
 
 //https://developers.facebook.com/docs/facebook-login/permissions/v2.1#reference-public_profile
-//    public_profile (Default)
-//
-//    Provides access to a subset of items that are part of a person's public profile. A person's public profile refers to the following properties on the user object by default:
-//
-//    id
-//    name
-//    first_name
-//    last_name
-//    link
-//    gender
-//    locale
-//    age_range
 
 }
 

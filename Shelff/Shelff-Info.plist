@@ -27,9 +27,7 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string></string>
-	</array>
+	<array/>
 	<key>FacebookAppID</key>
 	<string>1514166338800159</string>
 	<key>FacebookDisplayName</key>
