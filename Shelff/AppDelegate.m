@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <Parse/Parse.h>
 
 
 @implementation AppDelegate
@@ -17,6 +18,11 @@
     // Override point for customization after application launch.
     [FBLoginView class];
     [FBProfilePictureView class];
+
+    [Parse setApplicationId:@"kNZxe4XdPZqq9ep6lb45tZ4Ht4A3wH2HBbDI08xJ"
+                  clientKey:@"GvOR5KkqmRg1BFzOYu3lGEtUA0O2zbKGxGkfMxKe"];
+
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions]; //for tracking statisticv
 
     return YES;
 }

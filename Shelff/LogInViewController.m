@@ -8,6 +8,7 @@
 
 #import "LogInViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <Parse/Parse.h>
 
 
 @interface LogInViewController () <FBLoginViewDelegate>
@@ -60,8 +61,31 @@
     self.nameLabel.text = user.name;
     self.loggedInUser = user;
 
-//https://developers.facebook.com/docs/facebook-login/permissions/v2.1#reference-public_profile
+    //Parse
+    //Check if user exist, if not, save it
+    PFQuery *query = [PFQuery queryWithClassName:@"Customer"];
+    [query whereKey:@"FBid" equalTo:(id)user.objectID];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (!object) {
+            PFObject *customer = [PFObject objectWithClassName:@"Customer"];
+            [customer setObject:user.objectID forKey:@"FBid"];
+            //NOTE: profile pic can be obtain from FBid using FBProfilePictureView
+            [customer setObject:user.name forKey:@"FBName"];
+            [customer setObject:user.link forKey:@"FBLink"];
+            [customer saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+                    NSLog(@"saved");
+                }
+            }];
+        } else if (object) {
+            NSLog(@"existing user"); //Existing user
 
+        } else if (error) {
+            NSLog(@"error : %@",error);
+        }
+    }];
+
+    //https://developers.facebook.com/docs/facebook-login/permissions/v2.1#reference-public_profile
 }
 
 -(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
