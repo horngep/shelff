@@ -26,6 +26,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+//    UIImageView *imageHolder = [[UIImageView alloc] initWithFrame:CGRectMake(40, 200, 280, 192)];
+//    UIImage *image = [UIImage imageNamed:@"sneaker1.png"];
+//    imageHolder.image = image;
+//    // optional:
+//    // [imageHolder sizeToFit];
+//    [self.view addSubview:imageHolder];
+
+
+
+
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     //FirstTime Logging in
     self.nameLabel.text = @"Please Log In to continue";
@@ -34,6 +45,8 @@
     //requesting information
    // self.fbLogInView = [FBLoginView new];
     self.fbLogInView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+
+
 }
 
 -(void)viewWillAppear:(BOOL)animated

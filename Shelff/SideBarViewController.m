@@ -33,8 +33,8 @@
 {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
-    self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
+    self.view.backgroundColor = [UIColor colorWithRed:0.98 green:0.93 blue:0.76 alpha:1];//[UIColor colorWithWhite:0.2f alpha:1.0f];
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.98 green:0.93 blue:0.76 alpha:1];//[UIColor colorWithWhite:0.2f alpha:1.0f];
     self.tableView.separatorColor = [UIColor colorWithWhite:0.15f alpha:0.2f];
 }
 //
@@ -87,7 +87,9 @@
     
     return cell;
 }
-
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.backgroundColor = [UIColor colorWithRed:0.98 green:0.93 blue:0.76 alpha:1];
+}
 //
 //#pragma marl - UITableView Data Source
 //
