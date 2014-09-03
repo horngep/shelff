@@ -10,6 +10,7 @@
 #import "SWRevealViewController.h"
 
 
+
 @interface FriendListViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
@@ -22,6 +23,21 @@
     [super viewDidLoad];
     [self setSideBar];
     self.title = @"Friends";
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+                                                  NSDictionary* result,
+                                                  NSError *error) {
+        NSLog(@"results found : %@",result);
+        NSArray* friends = [result objectForKey:@"data"];
+        NSLog(@"Found: %i friends", friends.count);
+        for (NSDictionary<FBGraphUser>* friend in friends) {
+            NSLog(@"I have a friend named %@ with id %@", friend.name, friend.objectID);
+        }
+    }];
 }
 
 

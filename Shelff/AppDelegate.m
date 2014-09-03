@@ -22,6 +22,8 @@
     [FBProfilePictureView class];
 
 
+
+    
     [PFCustomer registerSubclass]; // this PFCustomer exist only for using "currentCustomer" method (in PFCustomer.h)
 
     [Parse setApplicationId:@"kNZxe4XdPZqq9ep6lb45tZ4Ht4A3wH2HBbDI08xJ"
@@ -46,6 +48,20 @@
     return wasHandled;
 }
 
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [FBAppEvents activateApp];
+    [FBAppCall handleDidBecomeActive];
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [FBSession.activeSession close];
+
+}
+
 #pragma mark - unrelated
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -64,14 +80,8 @@
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
 
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
+
+
 
 @end

@@ -32,24 +32,15 @@
     self.continueButton.hidden = YES;
 
     //requesting information
-    self.fbLogInView = [FBLoginView new];
-    self.fbLogInView.readPermissions = @[@"public_profile", @"user_friends"];
+   // self.fbLogInView = [FBLoginView new];
+    self.fbLogInView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    //TODO: doen'st work yet
-    FBRequest* friendsRequest = [FBRequest requestForMyFriends];
-    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
-                                                  NSDictionary* result,
-                                                  NSError *error) {
-        NSArray* friends = [result objectForKey:@"data"];
-        NSLog(@"Found: %i friends", friends.count);
-        for (NSDictionary<FBGraphUser>* friend in friends) {
-            NSLog(@"I have a friend named %@ with id %@", friend.name, friend.objectID);
-        }
-    }];
+
 }
+
 
 #pragma mark - FBLoginViewDelegate
 -(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user

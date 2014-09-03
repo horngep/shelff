@@ -84,12 +84,16 @@
     }
 
     NSString *profileID = [self.thisCustomer objectForKey:@"FBid"];
+    NSLog(@"id equals %@",profileID);
+
     [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *FBuser, NSError *error) {
         if (error) {
             NSLog(@"error : %@",error);
         }
         else {
             NSString *userImageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large",profileID];
+            NSLog(@"url equals %@",userImageURL);
+
             NSURL *url = [NSURL URLWithString:userImageURL];
             NSData *data = [NSData dataWithContentsOfURL:url];
             UIImage *image = [UIImage imageWithData:data];
