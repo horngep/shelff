@@ -39,6 +39,7 @@
 		84A72F6B19B23F6E00F5B52F /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A72F6A19B23F6E00F5B52F /* FriendListViewController.m */; };
 		84A72F6E19B241AB00F5B52F /* SideBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A72F6D19B241AB00F5B52F /* SideBarViewController.m */; };
 		84AC01EC19B672C9002F0AF5 /* PFCustomer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AC01EB19B672C9002F0AF5 /* PFCustomer.m */; };
+		84DF6F5119B7B68A00BF311A /* ShoeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DF6F5019B7B68A00BF311A /* ShoeDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,8 @@
 		84A72F6D19B241AB00F5B52F /* SideBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBarViewController.m; sourceTree = "<group>"; };
 		84AC01EA19B672C9002F0AF5 /* PFCustomer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFCustomer.h; sourceTree = "<group>"; };
 		84AC01EB19B672C9002F0AF5 /* PFCustomer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFCustomer.m; sourceTree = "<group>"; };
+		84DF6F4F19B7B68A00BF311A /* ShoeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoeDetailViewController.h; sourceTree = "<group>"; };
+		84DF6F5019B7B68A00BF311A /* ShoeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoeDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +186,8 @@
 				8443D99319B0C8DA008E2369 /* Main.storyboard */,
 				8443D9CE19B21FBC008E2369 /* ShelfViewController.h */,
 				8443D9CF19B21FBC008E2369 /* ShelfViewController.m */,
+				84DF6F4F19B7B68A00BF311A /* ShoeDetailViewController.h */,
+				84DF6F5019B7B68A00BF311A /* ShoeDetailViewController.m */,
 				84A72F6919B23F6E00F5B52F /* FriendListViewController.h */,
 				84A72F6A19B23F6E00F5B52F /* FriendListViewController.m */,
 				841F10FC19B647490091C90F /* UploadViewController.h */,
@@ -358,6 +363,7 @@
 				841F10FE19B647490091C90F /* UploadViewController.m in Sources */,
 				84A72F6E19B241AB00F5B52F /* SideBarViewController.m in Sources */,
 				84A72F6B19B23F6E00F5B52F /* FriendListViewController.m in Sources */,
+				84DF6F5119B7B68A00BF311A /* ShoeDetailViewController.m in Sources */,
 				8443D99819B0C8DA008E2369 /* LogInViewController.m in Sources */,
 				84AC01EC19B672C9002F0AF5 /* PFCustomer.m in Sources */,
 				8443D9D019B21FBC008E2369 /* ShelfViewController.m in Sources */,

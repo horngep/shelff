@@ -223,6 +223,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="Dy2-Ra-F46" kind="push" identifier="shoeDetailSegue" id="Acv-8u-VTs"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -236,7 +239,7 @@
                     <navigationItem key="navigationItem" id="kHo-Yz-OJG">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hZV-bx-EkP">
                             <connections>
-                                <segue destination="Mys-Ai-ZAM" kind="push" id="3Lu-5P-Bjv"/>
+                                <segue destination="Mys-Ai-ZAM" kind="push" identifier="addShoeSegue" id="3Lu-5P-Bjv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -249,6 +252,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ei-F6-1W5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4449" y="51"/>
+        </scene>
+        <!--Shoe Detail View Controller-->
+        <scene sceneID="hck-QY-DGy">
+            <objects>
+                <viewController id="Dy2-Ra-F46" customClass="ShoeDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hOG-Hh-24R"/>
+                        <viewControllerLayoutGuide type="bottom" id="12w-IC-FZG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dk8-US-4Tq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Vjb-5F-BL7">
+                                <rect key="frame" x="141" y="397" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="pageIndicatorTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="H8m-xM-RNp">
+                                <rect key="frame" x="0.0" y="64" width="320" height="325"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bUI-nF-Y2m">
+                                    <size key="itemSize" width="319" height="319"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellID" id="noZ-oo-UzL">
+                                        <rect key="frame" x="1" y="0.0" width="319" height="319"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="319" height="319"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Dy2-Ra-F46" id="4P2-Pd-aOs"/>
+                                    <outlet property="delegate" destination="Dy2-Ra-F46" id="KpY-31-B0z"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Hce-JI-l0q"/>
+                    <connections>
+                        <outlet property="collectionView" destination="H8m-xM-RNp" id="BeH-Hl-oBd"/>
+                        <outlet property="pageControl" destination="Vjb-5F-BL7" id="tkK-rd-c4a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZWb-5t-KMs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4997" y="-110"/>
         </scene>
         <!--Upload View Controller-->
         <scene sceneID="TUl-8o-pgA">
