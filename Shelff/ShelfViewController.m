@@ -68,7 +68,7 @@
     if (!self.thisCustomer) { //if not send from other one
         self.thisCustomer = [PFCustomer currentCustomer]; //got user
     } else {
-        self.navigationController.navigationItem.rightBarButtonItem = nil;
+        //TODO: hide right bar button item
         NSLog(@"your Friend's Shelf: %@",self.thisCustomer);
     }
 
