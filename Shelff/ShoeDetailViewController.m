@@ -34,8 +34,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"test git push");
-    
     self.shoePhotos = [NSMutableArray new]; //this is use for scrollView and pageControl purpose
     self.collectionView.pagingEnabled = YES;
 
