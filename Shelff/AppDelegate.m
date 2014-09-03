@@ -20,9 +20,6 @@
     // Override point for customization after application launch.
     [FBLoginView class];
     [FBProfilePictureView class];
-
-
-
     
     [PFCustomer registerSubclass]; // this PFCustomer exist only for using "currentCustomer" method (in PFCustomer.h)
 

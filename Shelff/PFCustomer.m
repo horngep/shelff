@@ -28,7 +28,10 @@ static PFCustomer *currentCustomer;
     return @"Customer";
 }
 
++(void)registerSubclass
+{
 
+}
 
 @end
 

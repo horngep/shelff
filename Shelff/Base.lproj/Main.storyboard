@@ -156,13 +156,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellID" id="quz-17-vba">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellID" id="quz-17-vba">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="quz-17-vba" id="ClX-Lq-G2S">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Zpp-e4-X5Z" kind="push" id="3K5-KO-4Wl"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -239,12 +242,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="4Nu-b5-j9h" id="r6a-e2-Xa2"/>
+                        <outlet property="plusBarButton" destination="hZV-bx-EkP" id="kdk-ZC-lZq"/>
                         <outlet property="profilePictureView" destination="Lev-ae-Dme" id="qbt-Vi-FfA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ei-F6-1W5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3903" y="50"/>
+            <point key="canvasLocation" x="4449" y="51"/>
         </scene>
         <!--Upload View Controller-->
         <scene sceneID="TUl-8o-pgA">
@@ -302,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQX-mJ-MR9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4450" y="627"/>
+            <point key="canvasLocation" x="5082" y="625"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="vVP-H7-Aum">
@@ -388,5 +392,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Kmb-5y-2aO"/>
+        <segue reference="3K5-KO-4Wl"/>
     </inferredMetricsTieBreakers>
 </document>

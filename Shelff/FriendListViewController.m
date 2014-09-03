@@ -8,11 +8,13 @@
 
 #import "FriendListViewController.h"
 #import "SWRevealViewController.h"
+#import "ShelfViewController.h"
 
 
 
 @interface FriendListViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property NSArray *friends;
 
 @end
 
@@ -31,26 +33,37 @@
     [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
                                                   NSDictionary* result,
                                                   NSError *error) {
-        NSLog(@"results found : %@",result);
-        NSArray* friends = [result objectForKey:@"data"];
-        NSLog(@"Found: %i friends", friends.count);
-        for (NSDictionary<FBGraphUser>* friend in friends) {
-            NSLog(@"I have a friend named %@ with id %@", friend.name, friend.objectID);
+        //NSLog(@"results found : %@",result);
+        self.friends = [result objectForKey:@"data"];
+        //NSLog(@"Found: %i friends", self.friends.count);
+        for (NSDictionary<FBGraphUser>* friend in self.friends) {
+           // NSLog(@"I have a friend named %@ with id %@", friend.name, friend.objectID);
         }
+        [self.tableView reloadData];
     }];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"cellID"]) {
+        ShelfViewController *svc = segue.destinationViewController;
+        svc.thisCustomer = [self.friends objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        // send the friend over
+    }
 }
 
 
 #pragma mark - Table View Datasource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.friends.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
-    cell.textLabel.text = [NSString stringWithFormat:@"row %d",indexPath.row];
+    NSDictionary<FBGraphUser> *friend = [self.friends objectAtIndex:indexPath.row];
+    cell.textLabel.text = friend.name;
     return cell;
 }
 

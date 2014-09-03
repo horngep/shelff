@@ -16,11 +16,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property NSArray *shoeArray;
 @property NSMutableArray *shoePhotoArray;
-
-//TODO: display only Photo0 in collectionViewDelegate
-//TODO: check if paging enable work
-//TODO: if yes, custom collection view cell for displaying name
-//TODO: did select object / prepare for segue
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *plusBarButton;
 
 @end
 
@@ -76,15 +72,22 @@
         }
     }];
 }
-
+// whic is the game app name
 -(void)profileSetUp
 {
+    NSLog(@"self.thisCustomer : %@",self.thisCustomer);
+    
     if (!self.thisCustomer) { //if not send from other one
         self.thisCustomer = [PFCustomer currentCustomer]; //got user
+        NSLog(@"in here");
+        //NSLog(@"current customer is : %@",[PFCustomer currentCustomer]);
+    } else {
+        self.navigationController.navigationItem.rightBarButtonItem = nil;
     }
 
+    //NSLog(@"this customer is : %@",self.thisCustomer);
     NSString *profileID = [self.thisCustomer objectForKey:@"FBid"];
-    NSLog(@"id equals %@",profileID);
+    //NSLog(@"id equals %@",profileID);
 
     [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *FBuser, NSError *error) {
         if (error) {
@@ -92,7 +95,7 @@
         }
         else {
             NSString *userImageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large",profileID];
-            NSLog(@"url equals %@",userImageURL);
+            //NSLog(@"url equals %@",userImageURL);
 
             NSURL *url = [NSURL URLWithString:userImageURL];
             NSData *data = [NSData dataWithContentsOfURL:url];
