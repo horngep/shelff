@@ -17,6 +17,7 @@
 		841F10F619B6298A0091C90F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841F10F519B6298A0091C90F /* CoreLocation.framework */; };
 		841F10F819B6299F0091C90F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841F10F719B6299F0091C90F /* CFNetwork.framework */; };
 		841F10FA19B629A90091C90F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841F10F919B629A90091C90F /* AudioToolbox.framework */; };
+		841F10FE19B647490091C90F /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F10FD19B647490091C90F /* UploadViewController.m */; };
 		8443D98219B0C8DA008E2369 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8443D98119B0C8DA008E2369 /* Foundation.framework */; };
 		8443D98419B0C8DA008E2369 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8443D98319B0C8DA008E2369 /* CoreGraphics.framework */; };
 		8443D98619B0C8DA008E2369 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8443D98519B0C8DA008E2369 /* UIKit.framework */; };
@@ -37,6 +38,7 @@
 		8443D9D319B22F7A008E2369 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8443D9D219B22F7A008E2369 /* SWRevealViewController.m */; };
 		84A72F6B19B23F6E00F5B52F /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A72F6A19B23F6E00F5B52F /* FriendListViewController.m */; };
 		84A72F6E19B241AB00F5B52F /* SideBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A72F6D19B241AB00F5B52F /* SideBarViewController.m */; };
+		84AC01EC19B672C9002F0AF5 /* PFCustomer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AC01EB19B672C9002F0AF5 /* PFCustomer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		841F10F519B6298A0091C90F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		841F10F719B6299F0091C90F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		841F10F919B629A90091C90F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		841F10FC19B647490091C90F /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadViewController.h; path = ../UploadViewController.h; sourceTree = "<group>"; };
+		841F10FD19B647490091C90F /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadViewController.m; path = ../UploadViewController.m; sourceTree = "<group>"; };
 		8443D97E19B0C8DA008E2369 /* Shelff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shelff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8443D98119B0C8DA008E2369 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8443D98319B0C8DA008E2369 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -90,6 +94,8 @@
 		84A72F6A19B23F6E00F5B52F /* FriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListViewController.m; sourceTree = "<group>"; };
 		84A72F6C19B241AB00F5B52F /* SideBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBarViewController.h; sourceTree = "<group>"; };
 		84A72F6D19B241AB00F5B52F /* SideBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBarViewController.m; sourceTree = "<group>"; };
+		84AC01EA19B672C9002F0AF5 /* PFCustomer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFCustomer.h; sourceTree = "<group>"; };
+		84AC01EB19B672C9002F0AF5 /* PFCustomer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFCustomer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,13 +103,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841F10F019B629680091C90F /* QuartzCore.framework in Frameworks */,
 				841F10FA19B629A90091C90F /* AudioToolbox.framework in Frameworks */,
 				841F10F819B6299F0091C90F /* CFNetwork.framework in Frameworks */,
 				8443D98419B0C8DA008E2369 /* CoreGraphics.framework in Frameworks */,
 				841F10F619B6298A0091C90F /* CoreLocation.framework in Frameworks */,
 				841F10F419B6297D0091C90F /* libz.dylib in Frameworks */,
 				841F10F219B629720091C90F /* MobileCoreServices.framework in Frameworks */,
-				841F10F019B629680091C90F /* QuartzCore.framework in Frameworks */,
 				841F10EE19B6295C0091C90F /* Security.framework in Frameworks */,
 				841F10EC19B629500091C90F /* StoreKit.framework in Frameworks */,
 				841F10EA19B629440091C90F /* SystemConfiguration.framework in Frameworks */,
@@ -179,6 +185,8 @@
 				8443D9CF19B21FBC008E2369 /* ShelfViewController.m */,
 				84A72F6919B23F6E00F5B52F /* FriendListViewController.h */,
 				84A72F6A19B23F6E00F5B52F /* FriendListViewController.m */,
+				841F10FC19B647490091C90F /* UploadViewController.h */,
+				841F10FD19B647490091C90F /* UploadViewController.m */,
 				8443D99919B0C8DA008E2369 /* Images.xcassets */,
 				8443D98819B0C8DA008E2369 /* Supporting Files */,
 			);
@@ -188,6 +196,8 @@
 		8443D98819B0C8DA008E2369 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				84AC01EA19B672C9002F0AF5 /* PFCustomer.h */,
+				84AC01EB19B672C9002F0AF5 /* PFCustomer.m */,
 				8443D9D119B22F7A008E2369 /* SWRevealViewController.h */,
 				8443D9D219B22F7A008E2369 /* SWRevealViewController.m */,
 				8443D98919B0C8DA008E2369 /* Shelff-Info.plist */,
@@ -345,9 +355,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841F10FE19B647490091C90F /* UploadViewController.m in Sources */,
 				84A72F6E19B241AB00F5B52F /* SideBarViewController.m in Sources */,
 				84A72F6B19B23F6E00F5B52F /* FriendListViewController.m in Sources */,
 				8443D99819B0C8DA008E2369 /* LogInViewController.m in Sources */,
+				84AC01EC19B672C9002F0AF5 /* PFCustomer.m in Sources */,
 				8443D9D019B21FBC008E2369 /* ShelfViewController.m in Sources */,
 				8443D99219B0C8DA008E2369 /* AppDelegate.m in Sources */,
 				8443D9C019B123A7008E2369 /* StartViewController.m in Sources */,

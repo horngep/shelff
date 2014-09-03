@@ -8,6 +8,10 @@
 
 #import <Parse/Parse.h>
 
-@interface PFCustomer : PFObject
+@interface PFCustomer : PFObject <PFSubclassing>
+
++(void)setCurrentCustomer:(PFCustomer*)customer;
++(PFCustomer*)currentCustomer;
++(NSString *)parseClassName;
 
 @end

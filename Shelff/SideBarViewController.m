@@ -37,22 +37,22 @@
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     self.tableView.separatorColor = [UIColor colorWithWhite:0.15f alpha:0.2f];
 }
-
-- (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
-{
-    //    // configure the destination view controller:
-    //    if ( [sender isKindOfClass:[UITableViewCell class]] )
-    //    {
-    //       // UILabel* c = [(SWUITableViewCell *)sender label];
-    //        UINavigationController *navController = segue.destinationViewController;
-    //        ColorViewController* cvc = [navController childViewControllers].firstObject;
-    //        if ( [cvc isKindOfClass:[ColorViewController class]] )
-    //        {
-    //            cvc.color = c.textColor;
-    //            cvc.text = c.text;
-    //        }
-    //    }
-}
+//
+//- (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
+//{
+//    //    // configure the destination view controller:
+//    //    if ( [sender isKindOfClass:[UITableViewCell class]] )
+//    //    {
+//    //       // UILabel* c = [(SWUITableViewCell *)sender label];
+//    //        UINavigationController *navController = segue.destinationViewController;
+//    //        ColorViewController* cvc = [navController childViewControllers].firstObject;
+//    //        if ( [cvc isKindOfClass:[ColorViewController class]] )
+//    //        {
+//    //            cvc.color = c.textColor;
+//    //            cvc.text = c.text;
+//    //        }
+//    //    }
+//}
 
 
 #pragma mark - Table view data source

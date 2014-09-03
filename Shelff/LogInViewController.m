@@ -9,7 +9,7 @@
 #import "LogInViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <Parse/Parse.h>
-
+#import "PFCustomer.h"
 
 @interface LogInViewController () <FBLoginViewDelegate>
 @property (strong, nonatomic) IBOutlet FBLoginView *fbLogInView;
@@ -59,7 +59,7 @@
     // "user" is what we got from "public_profile" readPermissions when logged in
     self.profilePictureView.profileID = user.objectID;
     self.nameLabel.text = user.name;
-    self.loggedInUser = user;
+    self.loggedInUser = user; //Get from Facebook
 
     //Parse
     //Check if user exist, if not, save it
@@ -75,10 +75,16 @@
             [customer saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
                     NSLog(@"saved");
+                    //set current customer as Parse
+                    [PFCustomer setCurrentCustomer:(PFCustomer *)customer];
                 }
             }];
+
         } else if (object) {
             NSLog(@"existing user"); //Existing user
+
+            //set current customer as Parse
+            [PFCustomer setCurrentCustomer:(PFCustomer *)object];
 
         } else if (error) {
             NSLog(@"error : %@",error);

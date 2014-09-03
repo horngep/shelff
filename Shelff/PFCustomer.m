@@ -8,6 +8,28 @@
 
 #import "PFCustomer.h"
 
+static PFCustomer *currentCustomer;
+
 @implementation PFCustomer
 
++(void)setCurrentCustomer:(PFCustomer*)customer
+{
+    currentCustomer = customer;
+}
+
+
++(PFCustomer*)currentCustomer
+{
+    return currentCustomer;
+}
+
++(NSString *)parseClassName
+{
+    return @"Customer";
+}
+
+
+
 @end
+
+

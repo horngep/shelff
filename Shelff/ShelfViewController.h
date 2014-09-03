@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import <FacebookSDK/FacebookSDK.h>
+#import "PFCustomer.h"
+
 
 @interface ShelfViewController : UIViewController
+@property PFObject *thisCustomer;
 
 @end
