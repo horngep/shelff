@@ -28,6 +28,7 @@
     self.collectionView.pagingEnabled = YES;
     self.shoeArray = [NSArray new]; //for did select item / segue
     self.shoePhotoArray = [NSMutableArray new]; // for display
+    NSLog(@"self.thisCustomer : %@",self.thisCustomer);
 
     [self setSideBar];
     [self profileSetUp];
@@ -58,7 +59,7 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Shoe"];
     [query whereKey:@"owner" equalTo:self.thisCustomer];
-    [query orderByAscending:@"createAt"]; //TODO: or Decending ?
+    [query orderByAscending:@"createAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         for (PFObject *shoe in objects) {
             PFFile *file = [shoe objectForKey:@"Photo0"];
@@ -72,11 +73,10 @@
         }
     }];
 }
-// whic is the game app name
+
 -(void)profileSetUp
 {
-    NSLog(@"self.thisCustomer : %@",self.thisCustomer);
-    
+
     if (!self.thisCustomer) { //if not send from other one
         self.thisCustomer = [PFCustomer currentCustomer]; //got user
         NSLog(@"in here");
@@ -96,7 +96,6 @@
         else {
             NSString *userImageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large",profileID];
             //NSLog(@"url equals %@",userImageURL);
-
             NSURL *url = [NSURL URLWithString:userImageURL];
             NSData *data = [NSData dataWithContentsOfURL:url];
             UIImage *image = [UIImage imageWithData:data];

@@ -85,7 +85,7 @@
             }];
 
         } else if (object) {
-            NSLog(@"existing user"); //Existing user
+           // NSLog(@"existing user"); //Existing user
 
             //set current customer as Parse
             [PFCustomer setCurrentCustomer:(PFCustomer *)object];

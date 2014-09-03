@@ -164,7 +164,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Zpp-e4-X5Z" kind="push" id="3K5-KO-4Wl"/>
+                                    <segue destination="Zpp-e4-X5Z" kind="push" identifier="friendSegue" id="3K5-KO-4Wl"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -14,7 +14,7 @@
 
 @interface FriendListViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property NSArray *friends;
+@property NSMutableArray *friends; //array of friends from Parse
 
 @end
 
@@ -23,35 +23,42 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setSideBar];
     self.title = @"Friends";
+    self.friends = [NSMutableArray new];
+
+    [self setSideBar];
+    [self getFriendsFromFacebookAndParse];
 }
 
--(void)viewWillAppear:(BOOL)animated
+-(void)getFriendsFromFacebookAndParse
 {
+    //Facebook
     FBRequest* friendsRequest = [FBRequest requestForMyFriends];
     [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
                                                   NSDictionary* result,
                                                   NSError *error) {
-        //NSLog(@"results found : %@",result);
-        self.friends = [result objectForKey:@"data"];
-        //NSLog(@"Found: %i friends", self.friends.count);
-        for (NSDictionary<FBGraphUser>* friend in self.friends) {
-           // NSLog(@"I have a friend named %@ with id %@", friend.name, friend.objectID);
+        NSArray *FBfriends = [result objectForKey:@"data"]; //array of friends from Facebook
+
+        //Parse
+        PFQuery *query = [PFQuery queryWithClassName:@"Customer"];
+        for (NSDictionary<FBGraphUser>* friend in FBfriends) {
+
+            [query whereKey:@"FBid" equalTo:friend.objectID];
+            [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+                [self.friends addObject:object]; //array of Friends in Parse
+                [self.tableView reloadData];
+            }];
         }
-        [self.tableView reloadData];
     }];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"cellID"]) {
+    if ([segue.identifier isEqualToString:@"friendSegue"]) {
         ShelfViewController *svc = segue.destinationViewController;
-        svc.thisCustomer = [self.friends objectAtIndex:[self.tableView indexPathForSelectedRow].row];
-        // send the friend over
+        svc.thisCustomer = [self.friends objectAtIndex:[self.tableView indexPathForSelectedRow].row]; //sending PFObject
     }
 }
-
 
 #pragma mark - Table View Datasource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -62,11 +69,12 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
-    NSDictionary<FBGraphUser> *friend = [self.friends objectAtIndex:indexPath.row];
-    cell.textLabel.text = friend.name;
+    PFObject *friend = [self.friends objectAtIndex:indexPath.row];
+    cell.textLabel.text = [friend objectForKey:@"FBName"];
     return cell;
 }
 
+#pragma mark - sidebar
 -(void)setSideBar
 {
     SWRevealViewController *revealController = [self revealViewController];
