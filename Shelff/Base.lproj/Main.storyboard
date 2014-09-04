@@ -382,8 +382,39 @@
                                 </state>
                                 <connections>
                                     <action selector="uploadButtonPressed:" destination="Mys-Ai-ZAM" eventType="touchUpInside" id="lbk-yw-2I1"/>
+                                    <segue destination="CLi-4j-mbe" kind="unwind" unwindAction="unwindToShelfViewController:" id="hya-NK-GPz"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Shoe Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iyj-Wn-VQh">
+                                <rect key="frame" x="20" y="411" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Mys-Ai-ZAM" id="4h7-W8-cqL"/>
+                                </connections>
+                            </textField>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="7" minValue="3" maxValue="25" translatesAutoresizingMaskIntoConstraints="NO" id="0J7-a8-G8V">
+                                <rect key="frame" x="80" y="456" width="222" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="onSizeSliderChange:" destination="Mys-Ai-ZAM" eventType="valueChanged" id="qCE-kH-ZLl"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="X" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bB0-sT-nar">
+                                <rect key="frame" x="49" y="460" width="32" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Size:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Nw-0o-Pey">
+                                <rect key="frame" x="12" y="458" width="37" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -395,11 +426,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="nameTextField" destination="Iyj-Wn-VQh" id="jkY-M9-swb"/>
                         <outlet property="pageControl" destination="2rR-CR-PXb" id="4yF-Sc-ZsA"/>
                         <outlet property="scrollView" destination="p6v-XO-cL0" id="NyC-it-Bh9"/>
+                        <outlet property="sizeLabel" destination="bB0-sT-nar" id="OCs-qi-n3Z"/>
+                        <outlet property="sizeSliderBar" destination="0J7-a8-G8V" id="5Cq-ON-cDt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQX-mJ-MR9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="CLi-4j-mbe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4937" y="9"/>
         </scene>
