@@ -37,6 +37,8 @@
     self.tableView.backgroundColor = [UIColor colorWithRed:0.98 green:0.93 blue:0.76 alpha:1];//[UIColor colorWithWhite:0.2f alpha:1.0f];
     self.tableView.separatorColor = [UIColor colorWithWhite:0.15f alpha:0.2f];
 }
+
+
 //
 //- (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
 //{
@@ -64,21 +66,30 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //pbb dont need this
     static NSString *CellIdentifier = @"Cell";
 
     switch ( indexPath.row )
     {
         case 0:
-            CellIdentifier = @"cell1";
+            CellIdentifier = @"cell0";
             break;
 
         case 1:
+            CellIdentifier = @"cell1";
+            break;
+
+        case 2:
             CellIdentifier = @"cell2";
+            break;
+
+        case 3:
+            CellIdentifier = @"cell3";
             break;
 
     }
@@ -87,9 +98,12 @@
     
     return cell;
 }
+
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     cell.backgroundColor = [UIColor colorWithRed:0.98 green:0.93 blue:0.76 alpha:1];
 }
+
+
 //
 //#pragma marl - UITableView Data Source
 //
