@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *plusBarButton;
 @property NSMutableArray *shoePhotoArray;
-@property NSMutableArray *shoeArray;
+@property NSArray *shoeArray;
 @end
 
 @implementation ShelfViewController
@@ -26,12 +26,34 @@
 {
     [super viewDidLoad];
     self.collectionView.pagingEnabled = YES;
-    self.shoeArray = [NSMutableArray new]; //for did select item / segue
+    self.shoeArray = [NSArray new];
     self.shoePhotoArray = [NSMutableArray new]; // for display
 
     [self setSideBar];
     [self profileSetUp];
     [self getShoes];
+}
+
+-(void)getShoes
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Shoe"];
+    [query whereKey:@"owner" equalTo:self.thisCustomer];
+    [query orderByAscending:@"createAt"]; //TODO: get the newest on top (this is not working)
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+
+        self.shoeArray = objects;
+
+        for (PFObject *shoe in self.shoeArray) {
+            PFFile *file = [shoe objectForKey:@"Photo0"];
+            [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                if (!error) {
+                    UIImage *image = [UIImage imageWithData:data];
+                    [self.shoePhotoArray addObject:image];
+                    [self.collectionView reloadData];
+                }
+            }];
+        }
+    }];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -42,7 +64,7 @@
         ShoeDetailViewController *vc = segue.destinationViewController;
         vc.shoe = [self.shoeArray objectAtIndex:[self.collectionView indexPathForCell:(UICollectionViewCell *)sender].row];
     } else if ([segue.identifier isEqualToString:@"logoutSegue"]) {
-        
+
     }
 }
 
@@ -53,10 +75,15 @@
 
     UIImage *image = [self.shoePhotoArray objectAtIndex:indexPath.row];
     UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+
+    //details
     imageView.frame = CGRectMake(0, 0, 319, 319);
     imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [cell.contentView addSubview:imageView];
+    for (UIView *subview in [cell.contentView subviews]) {
+        [subview removeFromSuperview];
+    }
 
+    [cell.contentView addSubview:imageView];
     return cell;
 }
 
@@ -91,26 +118,6 @@
     }];
 }
 
--(void)getShoes
-{
-    PFQuery *query = [PFQuery queryWithClassName:@"Shoe"];
-    [query whereKey:@"owner" equalTo:self.thisCustomer];
-    [query orderByAscending:@"createAt"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        for (PFObject *shoe in objects) {
-
-            [self.shoeArray addObject:shoe]; //just to make sure its in the correct order 
-            PFFile *file = [shoe objectForKey:@"Photo0"];
-            [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                if (!error) {
-                    UIImage *image = [UIImage imageWithData:data];
-                    [self.shoePhotoArray addObject:image];
-                    [self.collectionView reloadData];
-                }
-            }];
-        }
-    }];
-}
 
 
 -(void)setSideBar

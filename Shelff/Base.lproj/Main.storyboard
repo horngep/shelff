@@ -332,13 +332,27 @@
                                     <outlet property="delegate" destination="Dy2-Ra-F46" id="KpY-31-B0z"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAL-bJ-dna">
+                                <rect key="frame" x="20" y="427" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xan-LK-ckz">
+                                <rect key="frame" x="99" y="448" width="123" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Hce-JI-l0q"/>
                     <connections>
                         <outlet property="collectionView" destination="H8m-xM-RNp" id="BeH-Hl-oBd"/>
+                        <outlet property="nameLabel" destination="YAL-bJ-dna" id="xyF-NM-5jc"/>
                         <outlet property="pageControl" destination="Vjb-5F-BL7" id="tkK-rd-c4a"/>
+                        <outlet property="sizeLabel" destination="Xan-LK-ckz" id="o72-2g-TFW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZWb-5t-KMs" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -12,6 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
 
 @property NSMutableArray *shoePhotos;
 
@@ -37,6 +39,8 @@
     self.shoePhotos = [NSMutableArray new]; //this is use for scrollView and pageControl purpose
     self.collectionView.pagingEnabled = YES;
 
+    self.nameLabel.text = self.shoe[@"name"];
+    self.sizeLabel.text = [NSString stringWithFormat:@"Size %@",self.shoe[@"size"]];
     [self getPhotoFromParse];
 }
 
@@ -68,6 +72,7 @@
     imageView.frame = CGRectMake(0, 0, 319, 319);
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     [cell.contentView addSubview:imageView];
+    cell.backgroundColor = [UIColor blackColor];
     return cell;
 }
 
