@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profilePictureView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *plusBarButton;
+@property (weak, nonatomic) IBOutlet UILabel *customerLabel;
 @property NSMutableArray *shoePhotoArray;
 @property NSArray *shoeArray;
 @end
@@ -54,6 +55,12 @@
             }];
         }
     }];
+}
+
+- (IBAction)onProfileButtonPressed:(id)sender
+{
+    NSURL *url = [NSURL URLWithString:self.thisCustomer[@"FBLink"]];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -102,7 +109,8 @@
         NSLog(@"your Friend's Shelf: %@",self.thisCustomer);
     }
 
-    NSString *profileID = [self.thisCustomer objectForKey:@"FBid"];
+    NSString *profileID = self.thisCustomer[@"FBid"];
+    self.customerLabel.text = self.thisCustomer[@"FBName"];
 
     [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *FBuser, NSError *error) {
         if (error) {
