@@ -34,7 +34,6 @@
     [super viewDidLoad];
     [self showImagePicker];
     self.shoePics = [NSMutableArray new]; //array of images
-
 }
 
 -(void)viewDidAppear:(BOOL)animated
