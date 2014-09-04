@@ -5,29 +5,41 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>9254DDBA-98A2-421A-ABA8-3B77C33A5EF5</string>
+	<string>772EB4B1-A44E-4EA0-B083-5461ED9BA6F4</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Shelff</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>8213A682-9F54-4605-B61C-67E93EF6B0E8</key>
 		<string>https://github.com/horngep/Shelff.git</string>
+		<key>BAE1E853-2FB1-4D85-8610-CB273103A47F</key>
+		<string>https://github.com/horngep/shelff.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Shelff.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>8213A682-9F54-4605-B61C-67E93EF6B0E8</key>
+		<string>../../../Shelff</string>
+		<key>BAE1E853-2FB1-4D85-8610-CB273103A47F</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/horngep/Shelff.git</string>
+	<string>https://github.com/horngep/shelff.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>8213A682-9F54-4605-B61C-67E93EF6B0E8</string>
+	<string>BAE1E853-2FB1-4D85-8610-CB273103A47F</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BAE1E853-2FB1-4D85-8610-CB273103A47F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>shelff</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
