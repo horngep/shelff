@@ -40,6 +40,8 @@
     } else if ([segue.identifier isEqualToString:@"shoeDetailSegue"]) {
         ShoeDetailViewController *vc = segue.destinationViewController;
         vc.shoe = [self.shoeArray objectAtIndex:[self.collectionView indexPathForCell:(UICollectionViewCell *)sender].row];
+    } else if ([segue.identifier isEqualToString:@"logoutSegue"]) {
+        
     }
 }
 
