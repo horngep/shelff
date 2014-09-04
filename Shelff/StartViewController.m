@@ -43,6 +43,16 @@
 
             [nextButton addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchDown];
             [self.scrollView addSubview:nextButton];
+
+            if (i == 1) {
+                UILabel *firstLabel = [[UILabel alloc]init];
+                firstLabel.font = [UIFont fontWithName:@"Georgia" size:36];
+                [firstLabel setText:@"Shelf The digital closet for your sneakers"];
+                [firstLabel setFrame:CGRectMake(121, 480, 90, 30)];
+                firstLabel.textColor = [UIColor greenColor];
+                [self.scrollView addSubview:firstLabel];
+            }
+
         }
     }
 }
