@@ -27,6 +27,14 @@
 {
     [super viewDidLoad];
 
+    UIImage *image = [UIImage imageNamed:@"con"];
+    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 640 , 960)];
+    iv.contentMode = UIViewContentModeScaleAspectFit;
+    [iv setImage:image];
+    [self.view addSubview:iv];
+    //[iv sendSubviewToBack:self.view];
+    [iv.superview sendSubviewToBack:iv];
+
     //FirstTime Logging in
     self.nameLabel.text = @"Please Log In to continue";
     self.continueButton.hidden = YES;
