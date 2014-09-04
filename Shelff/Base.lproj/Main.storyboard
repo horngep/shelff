@@ -230,7 +230,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gr9-2L-j5N">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gr9-2L-j5N" userLabel="Profile View">
                                 <rect key="frame" x="0.0" y="63" width="320" height="142"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -260,7 +260,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Nu-b5-j9h">
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Nu-b5-j9h" userLabel="Collection View 1">
                                 <rect key="frame" x="0.0" y="245" width="320" height="323"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bhg-8u-eqV">
@@ -270,7 +270,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellID" id="cc6-hz-bfo">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellID1" id="cc6-hz-bfo">
                                         <rect key="frame" x="4" y="0.0" width="312" height="319"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -279,15 +279,62 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="Dy2-Ra-F46" kind="push" identifier="shoeDetailSegue" id="Acv-8u-VTs"/>
+                                            <segue destination="Dy2-Ra-F46" kind="push" identifier="shoeDetailSegue1" id="Acv-8u-VTs"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="Zpp-e4-X5Z" id="MvS-dI-b1T"/>
+                                    <outlet property="dataSource" destination="Zpp-e4-X5Z" id="aaO-Tb-zio"/>
                                     <outlet property="delegate" destination="Zpp-e4-X5Z" id="mBt-FC-da1"/>
                                 </connections>
                             </collectionView>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vsb-RJ-TJa" userLabel="Collection View 2">
+                                <rect key="frame" x="0.0" y="245" width="320" height="323"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="M0M-Ad-iQ3">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellID2" id="T1D-86-f2w">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <segue destination="Dy2-Ra-F46" kind="push" identifier="shoeDetailSegue2" id="t9X-mq-fRy"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Zpp-e4-X5Z" id="7Wu-Bo-9dz"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lc9-qs-glT" userLabel="singleCollectButton">
+                                <rect key="frame" x="66" y="213" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="square">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onDisplaySingleCollectionViewButtonPressed:" destination="Zpp-e4-X5Z" eventType="touchUpInside" id="MJt-9t-vLh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qK3-pX-xQe" userLabel="multipleCollectButton">
+                                <rect key="frame" x="229" y="213" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="tiles">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onDisplayMultipleCollectionViewButtonClick:" destination="Zpp-e4-X5Z" eventType="touchUpInside" id="qZf-9e-Nhd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -300,6 +347,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="4Nu-b5-j9h" id="r6a-e2-Xa2"/>
+                        <outlet property="collectionView2" destination="Vsb-RJ-TJa" id="6Bn-nf-za5"/>
                         <outlet property="customerLabel" destination="gp7-gM-dLn" id="K23-79-gjO"/>
                         <outlet property="plusBarButton" destination="hZV-bx-EkP" id="kdk-ZC-lZq"/>
                         <outlet property="profilePictureView" destination="Lev-ae-Dme" id="qbt-Vi-FfA"/>
@@ -549,14 +597,19 @@
             <point key="canvasLocation" x="3461" y="-1015"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="square" width="32" height="32"/>
+        <image name="tiles" width="64" height="63"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Kmb-5y-2aO"/>
         <segue reference="VkG-hB-8XI"/>
+        <segue reference="Kmb-5y-2aO"/>
         <segue reference="IU7-un-lhl"/>
+        <segue reference="t9X-mq-fRy"/>
     </inferredMetricsTieBreakers>
 </document>

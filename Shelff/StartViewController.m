@@ -33,7 +33,6 @@
         imageView.frame = CGRectMake((i)*320, 0, 320, 568);
         [self.scrollView addSubview:imageView];
 
-
         if (i == 2) { //add button on the last view
             UIButton *nextButton = [[UIButton alloc] init];
             

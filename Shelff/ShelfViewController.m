@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePictureView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView2;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *plusBarButton;
 @property (weak, nonatomic) IBOutlet UILabel *customerLabel;
 @property NSMutableArray *shoePhotoArray;
@@ -26,9 +27,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"collection1 %@",self.collectionView);
+    NSLog(@"collection2 %@",self.collectionView2);
+
     self.collectionView.pagingEnabled = YES;
     self.shoeArray = [NSArray new];
     self.shoePhotoArray = [NSMutableArray new]; // for display
+    self.collectionView2.hidden = YES; //hide multiple initially
 
     [self setSideBar];
     [self profileSetUp];
@@ -50,12 +55,27 @@
                 if (!error) {
                     UIImage *image = [UIImage imageWithData:data];
                     [self.shoePhotoArray addObject:image];
+
                     [self.collectionView reloadData];
+                    [self.collectionView2 reloadData];
                 }
             }];
         }
     }];
 }
+
+- (IBAction)onDisplaySingleCollectionViewButtonPressed:(id)sender
+{
+    self.collectionView.hidden = NO; //show single
+    self.collectionView2.hidden = YES; //hide multiple
+}
+
+- (IBAction)onDisplayMultipleCollectionViewButtonClick:(id)sender
+{
+    self.collectionView.hidden = YES;
+    self.collectionView2.hidden = NO;
+}
+
 
 - (IBAction)onProfileButtonPressed:(id)sender
 {
@@ -67,10 +87,13 @@
 {
     if ([segue.identifier isEqualToString:@"addShoeSegue"]) {
 
-    } else if ([segue.identifier isEqualToString:@"shoeDetailSegue"]) {
+    } else if ([segue.identifier isEqualToString:@"shoeDetailSegue1"]) {
         ShoeDetailViewController *vc = segue.destinationViewController;
         vc.shoe = [self.shoeArray objectAtIndex:[self.collectionView indexPathForCell:(UICollectionViewCell *)sender].row];
-    } else if ([segue.identifier isEqualToString:@"logoutSegue"]) {
+    } else if ([segue.identifier isEqualToString:@"shoeDetailSegue2"]) {
+        ShoeDetailViewController *vc = segue.destinationViewController;
+        vc.shoe = [self.shoeArray objectAtIndex:[self.collectionView2 indexPathForCell:(UICollectionViewCell *)sender].row];
+    }else if ([segue.identifier isEqualToString:@"logoutSegue"]) {
 
     }
 }
@@ -78,24 +101,49 @@
 #pragma mark - Collection View Delegate
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellID" forIndexPath:indexPath];
 
-    UIImage *image = [self.shoePhotoArray objectAtIndex:indexPath.row];
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+    //for single
+    if ([collectionView isEqual:self.collectionView]) {
+        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellID1" forIndexPath:indexPath];
 
-    //details
-    imageView.frame = CGRectMake(0, 0, 319, 319);
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    for (UIView *subview in [cell.contentView subviews]) {
-        [subview removeFromSuperview];
+        UIImage *image = [self.shoePhotoArray objectAtIndex:indexPath.row];
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+
+        //details
+        imageView.frame = CGRectMake(0, 0, 319, 319); //big imageView
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        for (UIView *subview in [cell.contentView subviews]) {
+            [subview removeFromSuperview];
+        }
+
+        [cell.contentView addSubview:imageView];
+        return cell;
+
+    } else if ([collectionView isEqual:self.collectionView2]) { //for multiple
+
+        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellID2" forIndexPath:indexPath];
+
+        UIImage *image = [self.shoePhotoArray objectAtIndex:indexPath.row];
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+
+        //details
+        imageView.frame = CGRectMake(0, 0, 100, 100); //small imageView
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        for (UIView *subview in [cell.contentView subviews]) {
+            [subview removeFromSuperview];
+        }
+
+        [cell.contentView addSubview:imageView];
+        return cell;
+    } else {
+        NSLog(@"ERROR with CollectionView Delegate!");
+        return nil;
     }
-
-    [cell.contentView addSubview:imageView];
-    return cell;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    //NSLog(@"COUNT %d",self.shoePhotoArray.count);
     return self.shoePhotoArray.count;
 }
 
