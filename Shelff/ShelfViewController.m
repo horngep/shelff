@@ -9,6 +9,7 @@
 #import "ShelfViewController.h"
 #import "SWRevealViewController.h"
 #import "ShoeDetailViewController.h"
+#import "UploadViewController.h"
 
 @interface ShelfViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -121,6 +122,12 @@
     UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
                                                                          style:UIBarButtonItemStyleBordered target:revealController action:@selector(revealToggle:)];
     self.navigationItem.leftBarButtonItem = revealButtonItem;
+}
+
+#pragma mark - unwind from Upload VC
+- (IBAction)unwindToShelfViewController:(UIStoryboardSegue *)unwindSegue
+{
+    UploadViewController *uvc = unwindSegue.sourceViewController;
 }
 
 @end
