@@ -141,6 +141,14 @@
     }
 }
 
+- (void)deselectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated
+{
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+//    [self.collectionView deleteItemsAtIndexPaths:[NSArray arrayWithObject:[indexPath]]];
+}
+
+
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     //NSLog(@"COUNT %d",self.shoePhotoArray.count);
