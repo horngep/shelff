@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionViewFlowLayout;
-
 @property NSMutableArray *shoePhotos;
 
 #define kNoOfPhotoAllow 6
@@ -24,13 +23,11 @@
 
 @implementation ShoeDetailViewController
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.shoePhotos = [NSMutableArray new]; //this is use for scrollView and pageControl purpose
     self.collectionView.pagingEnabled = YES;
-
 
     self.nameLabel.text = self.shoe[@"name"];
     self.sizeLabel.text = [NSString stringWithFormat:@"Size %@",self.shoe[@"size"]];
@@ -79,9 +76,9 @@
     return self.shoePhotos.count;
 }
 
-//this is for collectionview
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-
+//this is for collectionview (which inherit from scrollView)
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
     int page = scrollView.contentOffset.x / scrollView.frame.size.width;
     self.pageControl.currentPage = page;
 }

@@ -38,16 +38,19 @@
                                                   NSDictionary* result,
                                                   NSError *error) {
         NSArray *FBfriends = [result objectForKey:@"data"]; //array of friends from Facebook
+        NSLog(@"friends: %lu",(unsigned long)FBfriends.count);
 
         //Parse
-        PFQuery *query = [PFQuery queryWithClassName:@"Customer"];
         for (NSDictionary<FBGraphUser>* friend in FBfriends) {
-
+            PFQuery *query = [PFQuery queryWithClassName:@"Customer"];
+            [query orderByAscending:@"Customer"];
             [query whereKey:@"FBid" equalTo:friend.objectID];
+
             [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
                 [self.friends addObject:object]; //array of Friends in Parse
                 [self.tableView reloadData];
             }];
+
         }
     }];
 }
