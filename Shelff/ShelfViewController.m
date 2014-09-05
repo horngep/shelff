@@ -38,8 +38,6 @@
     [self getShoes];
 }
 
-
-
 #pragma mark - Actions
 
 - (IBAction)onRightBarButtonItemPressed:(id)sender

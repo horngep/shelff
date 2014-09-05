@@ -420,6 +420,7 @@
                     <navigationItem key="navigationItem" id="Hce-JI-l0q"/>
                     <connections>
                         <outlet property="collectionView" destination="H8m-xM-RNp" id="BeH-Hl-oBd"/>
+                        <outlet property="collectionViewFlowLayout" destination="bUI-nF-Y2m" id="uFm-5E-4cC"/>
                         <outlet property="nameLabel" destination="YAL-bJ-dna" id="xyF-NM-5jc"/>
                         <outlet property="pageControl" destination="Vjb-5F-BL7" id="tkK-rd-c4a"/>
                         <outlet property="sizeLabel" destination="Xan-LK-ckz" id="o72-2g-TFW"/>
@@ -441,7 +442,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p6v-XO-cL0">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6v-XO-cL0">
                                 <rect key="frame" x="0.0" y="65" width="320" height="320"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.82615194520000002" green="0.82615194520000002" blue="0.82615194520000002" alpha="1" colorSpace="calibratedRGB"/>

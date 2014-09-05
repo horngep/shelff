@@ -155,15 +155,11 @@
 }
 
 #pragma mark - Scroll View Delegate
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     int page = scrollView.contentOffset.x / scrollView.frame.size.width;
     self.pageControl.currentPage = page;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)aScrollView
-{
-    [aScrollView setContentOffset: CGPointMake(aScrollView.contentOffset.x, 0)];
-}
 
 @end

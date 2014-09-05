@@ -14,21 +14,13 @@
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionViewFlowLayout;
 
 @property NSMutableArray *shoePhotos;
 
 #define kNoOfPhotoAllow 6
 
 @end
-
-//get the collection View to work first
-
-// MAX - this is for paging
-//[collectionview addgesture: scrollview.pangesture]
-//collectionview.gesture = no
-
-//scrollview content size = collection view content size
-// use paging accroding to scrollview
 
 @implementation ShoeDetailViewController
 
@@ -39,9 +31,12 @@
     self.shoePhotos = [NSMutableArray new]; //this is use for scrollView and pageControl purpose
     self.collectionView.pagingEnabled = YES;
 
+
     self.nameLabel.text = self.shoe[@"name"];
     self.sizeLabel.text = [NSString stringWithFormat:@"Size %@",self.shoe[@"size"]];
     [self getPhotoFromParse];
+
+    [self.collectionViewFlowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
 }
 
 -(void)getPhotoFromParse
@@ -53,7 +48,7 @@
                 if (!error) {
                     UIImage *image = [UIImage imageWithData:data];
                     [self.shoePhotos addObject:image];
-                    NSLog(@"no of images is %d",self.shoePhotos.count);
+                    self.pageControl.numberOfPages =  self.shoePhotos.count;
 
                     [self.collectionView reloadData];
                 }
@@ -71,14 +66,24 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[self.shoePhotos objectAtIndex:indexPath.row]];
     imageView.frame = CGRectMake(0, 0, 319, 319);
     imageView.contentMode = UIViewContentModeScaleAspectFit;
+    for (UIView *subview in [cell.contentView subviews]) {
+        [subview removeFromSuperview];
+    }
+
     [cell.contentView addSubview:imageView];
-    cell.backgroundColor = [UIColor blackColor];
     return cell;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.shoePhotos.count;
+}
+
+//this is for collectionview
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+
+    int page = scrollView.contentOffset.x / scrollView.frame.size.width;
+    self.pageControl.currentPage = page;
 }
 
 @end
