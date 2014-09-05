@@ -39,9 +39,11 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    self.scrollView.contentSize = CGSizeMake((320 * self.shoePics.count), 320);
     self.scrollView.pagingEnabled = YES;
     self.pageControl.numberOfPages = self.shoePics.count;
+    self.scrollView.contentSize = CGSizeMake((320 * self.shoePics.count), 320);
+
+    NSLog(@"%@", self.scrollView);
 }
 
 - (IBAction)uploadButtonPressed:(id)sender
@@ -136,7 +138,6 @@
 }
 
 #pragma mark UIImagePickerControllerDelegate
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
@@ -159,6 +160,8 @@
 {
     int page = scrollView.contentOffset.x / scrollView.frame.size.width;
     self.pageControl.currentPage = page;
+
+    [scrollView setContentOffset: CGPointMake(scrollView.contentOffset.x, 0)];
 }
 
 
