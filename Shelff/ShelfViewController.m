@@ -36,6 +36,9 @@
     [self setSideBar];
     [self profileSetUp];
     [self getShoes];
+    
+    [self.collectionView reloadData];
+    [self.collectionView2 reloadData];
 }
 
 #pragma mark - Actions
@@ -110,6 +113,8 @@
 -(void)profileSetUp
 {
     if (!self.thisCustomer) { //if not send from other one
+
+        //TODO: solve potential log in bug here
         self.thisCustomer = [PFCustomer currentCustomer]; //got user
         self.plusBarButton.title = @"Add";
 
