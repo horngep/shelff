@@ -19,7 +19,7 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a6m-q5-Q4Q" customClass="FBLoginView">
                                 <rect key="frame" x="27" y="285" width="266" height="43"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.62957182210539808" green="0.83608739200048598" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.82615194520000002" green="0.82615194520000002" blue="0.82615194520000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="trg-Jx-Sf0"/>
                                 </connections>
@@ -27,7 +27,7 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LRj-bB-li2" customClass="FBProfilePictureView">
                                 <rect key="frame" x="123" y="174" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.86668779259999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.81068638390000003" green="0.81068638390000003" blue="0.81068638390000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oxa-LN-GrB">
                                 <rect key="frame" x="11" y="262" width="299" height="21"/>
@@ -40,6 +40,7 @@
                                 <rect key="frame" x="129" y="409" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Continue">
+                                    <color key="titleColor" red="0.81068638390000003" green="0.81068638390000003" blue="0.81068638390000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -339,9 +340,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="kHo-Yz-OJG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hZV-bx-EkP">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="hZV-bx-EkP">
                             <connections>
-                                <segue destination="Mys-Ai-ZAM" kind="push" identifier="addShoeSegue" id="3Lu-5P-Bjv"/>
+                                <action selector="onRightBarButtonItemPressed:" destination="Zpp-e4-X5Z" id="vbE-YD-SEk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -351,6 +352,7 @@
                         <outlet property="customerLabel" destination="gp7-gM-dLn" id="K23-79-gjO"/>
                         <outlet property="plusBarButton" destination="hZV-bx-EkP" id="kdk-ZC-lZq"/>
                         <outlet property="profilePictureView" destination="Lev-ae-Dme" id="qbt-Vi-FfA"/>
+                        <segue destination="Mys-Ai-ZAM" kind="push" identifier="addShoeSegue" id="YjN-kB-TdK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ei-F6-1W5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -464,7 +466,6 @@
                                 </state>
                                 <connections>
                                     <action selector="uploadButtonPressed:" destination="Mys-Ai-ZAM" eventType="touchUpInside" id="lbk-yw-2I1"/>
-                                    <segue destination="CLi-4j-mbe" kind="unwind" unwindAction="unwindToShelfViewController:" id="hya-NK-GPz"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Shoe Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iyj-Wn-VQh">
@@ -483,7 +484,7 @@
                                     <action selector="onSizeSliderChange:" destination="Mys-Ai-ZAM" eventType="valueChanged" id="qCE-kH-ZLl"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="X" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bB0-sT-nar">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bB0-sT-nar">
                                 <rect key="frame" x="49" y="460" width="32" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -501,7 +502,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="LDA-KG-yJh">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="s78-iz-cHd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="s78-iz-cHd">
                             <connections>
                                 <action selector="addButtonPressed:" destination="Mys-Ai-ZAM" id="O0k-LC-Qe7"/>
                             </connections>
@@ -513,6 +514,7 @@
                         <outlet property="scrollView" destination="p6v-XO-cL0" id="NyC-it-Bh9"/>
                         <outlet property="sizeLabel" destination="bB0-sT-nar" id="OCs-qi-n3Z"/>
                         <outlet property="sizeSliderBar" destination="0J7-a8-G8V" id="5Cq-ON-cDt"/>
+                        <segue destination="CLi-4j-mbe" kind="unwind" identifier="unwindToShelf" unwindAction="unwindToShelfViewController:" id="SeG-EX-Fg7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQX-mJ-MR9" userLabel="First Responder" sceneMemberID="firstResponder"/>

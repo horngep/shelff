@@ -70,6 +70,7 @@
             if (!error) {
                 app.networkActivityIndicatorVisible = NO;
                 NSLog(@"photo saved");
+                [self performSegueWithIdentifier:@"unwindToShelf" sender:self];
             }
         }];
     }
