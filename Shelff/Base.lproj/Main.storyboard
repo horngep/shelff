@@ -337,7 +337,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.35441728032792497" green="0.65433673469387754" blue="0.5611429845967415" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="kHo-Yz-OJG">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="hZV-bx-EkP">

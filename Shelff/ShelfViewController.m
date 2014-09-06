@@ -33,6 +33,8 @@
     self.shoePhotoArray = [NSMutableArray new]; // for display
     self.collectionView2.hidden = YES; //hide multiple initially
 
+    self.view.backgroundColor = [UIColor colorWithRed:0.67 green:0.8 blue:0.75 alpha:1];
+
     [self setSideBar];
     [self profileSetUp];
     [self getShoes];
