@@ -417,16 +417,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Hce-JI-l0q"/>
+                    <navigationItem key="navigationItem" id="Hce-JI-l0q">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="7br-R1-eUQ">
+                            <connections>
+                                <action selector="trashButtonClick:" destination="Dy2-Ra-F46" id="h6u-c5-fTQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="H8m-xM-RNp" id="BeH-Hl-oBd"/>
                         <outlet property="collectionViewFlowLayout" destination="bUI-nF-Y2m" id="uFm-5E-4cC"/>
                         <outlet property="nameLabel" destination="YAL-bJ-dna" id="xyF-NM-5jc"/>
                         <outlet property="pageControl" destination="Vjb-5F-BL7" id="tkK-rd-c4a"/>
                         <outlet property="sizeLabel" destination="Xan-LK-ckz" id="o72-2g-TFW"/>
+                        <outlet property="trashButton" destination="7br-R1-eUQ" id="GKs-Dn-FS3"/>
+                        <segue destination="hyt-nu-WTi" kind="unwind" identifier="unwindSegue" unwindAction="unwindToShelfViewController:" id="i8f-YL-Kl0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZWb-5t-KMs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="hyt-nu-WTi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4937" y="-833"/>
         </scene>

@@ -27,18 +27,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithRed:0.67 green:0.8 blue:0.75 alpha:1];
 
     self.collectionView.pagingEnabled = YES;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
     self.shoeArray = [NSArray new];
     self.shoePhotoArray = [NSMutableArray new]; // for display
     self.collectionView2.hidden = YES; //hide multiple initially
 
-    self.view.backgroundColor = [UIColor colorWithRed:0.67 green:0.8 blue:0.75 alpha:1];
 
     [self setSideBar];
     [self profileSetUp];
     [self getShoes];
-    
+
     [self.collectionView reloadData];
     [self.collectionView2 reloadData];
 }
@@ -87,6 +93,7 @@
     } else if ([segue.identifier isEqualToString:@"shoeDetailSegue1"]) {
         ShoeDetailViewController *vc = segue.destinationViewController;
         vc.shoe = [self.shoeArray objectAtIndex:[self.collectionView indexPathForCell:(UICollectionViewCell *)sender].row];
+        vc.thisCustomer = self.thisCustomer;
     } else if ([segue.identifier isEqualToString:@"shoeDetailSegue2"]) {
         ShoeDetailViewController *vc = segue.destinationViewController;
         vc.shoe = [self.shoeArray objectAtIndex:[self.collectionView2 indexPathForCell:(UICollectionViewCell *)sender].row];
@@ -151,6 +158,7 @@
 
         self.shoeArray = objects;
 
+        //TODO: BUGGY
         for (PFObject *shoe in self.shoeArray) {
             PFFile *file = [shoe objectForKey:@"Photo0"];
             [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {

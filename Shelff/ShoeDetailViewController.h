@@ -14,5 +14,6 @@
 
 @interface ShoeDetailViewController : UIViewController
 @property PFObject *shoe;
+@property PFObject *thisCustomer;
 
 @end

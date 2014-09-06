@@ -7,8 +7,9 @@
 //
 
 #import "ShoeDetailViewController.h"
+#import "PFCustomer.h"
 
-@interface ShoeDetailViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ShoeDetailViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
@@ -16,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionViewFlowLayout;
 @property NSMutableArray *shoePhotos;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *trashButton;
 
 #define kNoOfPhotoAllow 6
 
@@ -34,6 +36,10 @@
     [self getPhotoFromParse];
 
     [self.collectionViewFlowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+
+    if (![self.thisCustomer isEqual:[PFCustomer currentCustomer]]) {
+        [self.navigationItem setRightBarButtonItems:nil animated:YES];
+    }
 }
 
 -(void)getPhotoFromParse
@@ -53,6 +59,29 @@
         } else {
             break;
         }
+    }
+}
+
+#pragma mark - delete shoe
+- (IBAction)trashButtonClick:(id)sender
+{
+    UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"Delete" message:@"Are you sure you want to delete this shoe ?" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"Delete", nil];
+    [deleteAlert show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        UIApplication* app = [UIApplication sharedApplication]; //netWorkActivityIndicator
+        app.networkActivityIndicatorVisible = YES;
+
+        //delete
+        [self.shoe deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                app.networkActivityIndicatorVisible = NO;
+                [self performSegueWithIdentifier:@"unwindSegue" sender:self];
+            }
+        }];
     }
 }
 
