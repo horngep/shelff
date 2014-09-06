@@ -33,10 +33,10 @@
 {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor colorWithRed:0.03 green:0.54 blue:0.73 alpha:1];
-    self.tableView.backgroundColor = [UIColor colorWithRed:0.03 green:0.54 blue:0.73 alpha:1];
+    //self.view.backgroundColor = [UIColor colorWithRed:0.99 green:0.97 blue:0.83 alpha:1];
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.99 green:0.97 blue:0.83 alpha:1];
 
-    self.tableView.separatorColor = [UIColor colorWithRed:0.03 green:0.54 blue:0.73 alpha:1];
+    self.tableView.separatorColor = [UIColor blackColor];
 
 }
 
