@@ -23,7 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Friends";
+    self.title = @"Collectors";
     self.friends = [NSMutableArray new];
 
     [self setSideBar];

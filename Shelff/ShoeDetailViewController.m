@@ -28,10 +28,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithRed:0.67 green:0.8 blue:0.75 alpha:1];
     self.shoePhotos = [NSMutableArray new]; //this is use for scrollView and pageControl purpose
     self.collectionView.pagingEnabled = YES;
 
     self.nameLabel.text = self.shoe[@"name"];
+    self.nameLabel.font = [UIFont fontWithName:@"Georgia" size:16];
     self.sizeLabel.text = [NSString stringWithFormat:@"Size %@",self.shoe[@"size"]];
     [self getPhotoFromParse];
 

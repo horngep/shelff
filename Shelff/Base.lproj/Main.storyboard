@@ -316,16 +316,6 @@
                                     <outlet property="dataSource" destination="Zpp-e4-X5Z" id="7Wu-Bo-9dz"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lc9-qs-glT" userLabel="singleCollectButton">
-                                <rect key="frame" x="66" y="213" width="24" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="square">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onDisplaySingleCollectionViewButtonPressed:" destination="Zpp-e4-X5Z" eventType="touchUpInside" id="MJt-9t-vLh"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qK3-pX-xQe" userLabel="multipleCollectButton">
                                 <rect key="frame" x="229" y="213" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -334,6 +324,16 @@
                                 </state>
                                 <connections>
                                     <action selector="onDisplayMultipleCollectionViewButtonClick:" destination="Zpp-e4-X5Z" eventType="touchUpInside" id="qZf-9e-Nhd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLA-aj-YkX">
+                                <rect key="frame" x="52" y="209" width="24" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="3line">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onDisplaySingleCollectionViewButtonPressed:" destination="Zpp-e4-X5Z" eventType="touchUpInside" id="wLJ-I4-Sv1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -619,7 +619,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="square" width="32" height="32"/>
+        <image name="3line" width="256" height="256"/>
         <image name="tiles" width="64" height="63"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
