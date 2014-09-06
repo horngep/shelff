@@ -29,7 +29,7 @@
     self.pageControl.numberOfPages = 3;
     self.pageControl.currentPage = 0;
 
-    self.welcomeTextView.backgroundColor = [UIColor colorWithWhite:0.5f alpha:0.3];
+    self.welcomeTextView.backgroundColor = [UIColor colorWithWhite:0.5f alpha:0.1];
 
     for (int i = 0; i < 3; i++) {
         UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"background%d.png",i+1]]];

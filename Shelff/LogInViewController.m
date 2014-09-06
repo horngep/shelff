@@ -27,13 +27,9 @@
 {
     [super viewDidLoad];
 
-    UIImage *image = [UIImage imageNamed:@"con"];
-    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 640 , 960)];
-    iv.contentMode = UIViewContentModeScaleAspectFit;
-    [iv setImage:image];
-    [self.view addSubview:iv];
-    //[iv sendSubviewToBack:self.view];
-    [iv.superview sendSubviewToBack:iv];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"con"]];
+    self.view.backgroundColor = [UIColor colorWithRed:0.013 green:0.086 blue:0.21 alpha:1];
+
 
     //FirstTime Logging in
     self.nameLabel.text = @"Please Log In to continue";
@@ -41,10 +37,7 @@
 
     //requesting information
     self.fbLogInView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
-
-
 }
-
 
 #pragma mark - FBLoginViewDelegate
 -(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user
