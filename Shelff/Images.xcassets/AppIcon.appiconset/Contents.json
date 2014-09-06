@@ -1,28 +1,33 @@
 {
   "images" : [
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "shelficon1@2x.png 29.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "40x40",
-      "scale" : "2x"
-    },
-    {
       "idiom" : "iphone",
-      "size" : "60x60",
+      "filename" : "shelficon1@2x.png 40.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "mac",
+      "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "shelficon1@2x.png 60.png",
+      "scale" : "2x"
+    },
+    {
       "size" : "512x512",
+      "idiom" : "mac",
+      "filename" : "shelficon1@2x.png-1.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "mac",
       "size" : "512x512",
+      "idiom" : "mac",
+      "filename" : "shelficon1@2x.png.png",
       "scale" : "2x"
     }
   ],

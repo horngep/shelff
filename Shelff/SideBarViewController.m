@@ -38,25 +38,6 @@
     self.tableView.separatorColor = [UIColor colorWithWhite:0.15f alpha:0.2f];
 }
 
-
-//
-//- (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
-//{
-//    //    // configure the destination view controller:
-//    //    if ( [sender isKindOfClass:[UITableViewCell class]] )
-//    //    {
-//    //       // UILabel* c = [(SWUITableViewCell *)sender label];
-//    //        UINavigationController *navController = segue.destinationViewController;
-//    //        ColorViewController* cvc = [navController childViewControllers].firstObject;
-//    //        if ( [cvc isKindOfClass:[ColorViewController class]] )
-//    //        {
-//    //            cvc.color = c.textColor;
-//    //            cvc.text = c.text;
-//    //        }
-//    //    }
-//}
-
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -102,76 +83,5 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     cell.backgroundColor = [UIColor colorWithRed:0.98 green:0.93 blue:0.76 alpha:1];
 }
-
-
-//
-//#pragma marl - UITableView Data Source
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    return 2;
-//}
-//
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    static NSString *cellIdentifier = @"Cell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//    NSInteger row = indexPath.row;
-//
-//    if (nil == cell)
-//    {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
-//    }
-//
-//    NSString *text = nil;
-//    if (row == 0)
-//    {
-//        text = @"My Shlef";
-//    }
-//    else if (row == 1)
-//    {
-//        text = @"Friends";
-//    }
-//
-//    cell.textLabel.text = NSLocalizedString( text,nil );
-//    return cell;
-//}
-//
-//
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//
-////
-////    //TODO: use storyboard
-////
-////    // Grab a handle to the reveal controller, as if you'd do with a navigtion controller via self.navigationController.
-//    SWRevealViewController *revealController = self.revealViewController;
-//
-//    NSInteger row = indexPath.row;
-//
-//    if ( row == _presentedRow )
-//    {
-//        [revealController setFrontViewPosition:FrontViewPositionLeft animated:YES];
-//        return;
-//    }
-//
-//    UIViewController *newFrontController = nil;
-//
-//    if (row == 0)
-//    {
-//        newFrontController = [[ShelfViewController alloc] init];
-//    }
-//
-//    else if (row == 1)
-//    {
-//        newFrontController = [[FriendListViewController alloc] init];
-//    }
-//
-//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:newFrontController];
-//    [revealController pushFrontViewController:navigationController animated:YES];
-//
-//    _presentedRow = row;  // <- store the presented row
-//}
 
 @end
