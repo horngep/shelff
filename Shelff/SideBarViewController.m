@@ -83,7 +83,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.backgroundColor = [UIColor colorWithRed:0.03 green:0.54 blue:0.73 alpha:1];
+    cell.backgroundColor = [UIColor colorWithRed:0.99 green:0.97 blue:0.83 alpha:1];
+
 
 }
 
