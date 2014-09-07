@@ -249,6 +249,7 @@
                                         </state>
                                         <connections>
                                             <action selector="onProfileButtonPressed:" destination="Zpp-e4-X5Z" eventType="touchUpInside" id="QSg-55-Qdh"/>
+                                            <segue destination="dey-e5-I90" kind="push" identifier="toWebView" id="0Fv-zv-xty"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gp7-gM-dLn">
@@ -262,20 +263,20 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Nu-b5-j9h" userLabel="Collection View 1">
-                                <rect key="frame" x="0.0" y="245" width="320" height="323"/>
+                                <rect key="frame" x="0.0" y="256" width="320" height="312"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bhg-8u-eqV">
-                                    <size key="itemSize" width="312" height="319"/>
+                                    <size key="itemSize" width="312" height="312"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellID1" id="cc6-hz-bfo">
-                                        <rect key="frame" x="4" y="0.0" width="312" height="319"/>
+                                        <rect key="frame" x="4" y="0.0" width="312" height="312"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="312" height="319"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="312" height="312"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -290,7 +291,7 @@
                                 </connections>
                             </collectionView>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vsb-RJ-TJa" userLabel="Collection View 2">
-                                <rect key="frame" x="0.0" y="245" width="320" height="323"/>
+                                <rect key="frame" x="0.0" y="256" width="320" height="312"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="M0M-Ad-iQ3">
                                     <size key="itemSize" width="100" height="100"/>
@@ -317,7 +318,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qK3-pX-xQe" userLabel="multipleCollectButton">
-                                <rect key="frame" x="229" y="213" width="24" height="24"/>
+                                <rect key="frame" x="222" y="220" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="tiles">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -327,9 +328,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLA-aj-YkX">
-                                <rect key="frame" x="52" y="209" width="24" height="31"/>
+                                <rect key="frame" x="70" y="218" width="26" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="3line">
+                                <state key="normal" image="square">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -438,6 +439,35 @@
                 <exit id="hyt-nu-WTi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4937" y="-833"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="UNR-8G-NXR">
+            <objects>
+                <viewController id="dey-e5-I90" customClass="WebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4o3-cn-U42"/>
+                        <viewControllerLayoutGuide type="bottom" id="lLw-ah-hF3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bsa-NF-JLw" customClass="webview">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hBW-rH-gBN">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zNC-gL-2t4"/>
+                    <connections>
+                        <outlet property="webView" destination="hBW-rH-gBN" id="Beb-8C-AF9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j1a-ho-Abb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4458" y="338"/>
         </scene>
         <!--Upload View Controller-->
         <scene sceneID="TUl-8o-pgA">
@@ -551,20 +581,20 @@
                                     <outlet property="delegate" destination="7eI-aY-qgv" id="D3g-av-AFx"/>
                                 </connections>
                             </scrollView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="test" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5n-5I-CrM">
-                                <rect key="frame" x="44" y="119" width="231" height="90"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="UQG-Ui-pKU">
                                 <rect key="frame" x="139" y="511" width="42" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="pageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="test" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5n-5I-CrM">
+                                <rect key="frame" x="44" y="72" width="231" height="73"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -619,7 +649,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="3line" width="256" height="256"/>
+        <image name="square" width="32" height="32"/>
         <image name="tiles" width="64" height="63"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -628,9 +658,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="VkG-hB-8XI"/>
+        <segue reference="D55-ce-jQi"/>
         <segue reference="Kmb-5y-2aO"/>
         <segue reference="IU7-un-lhl"/>
-        <segue reference="Acv-8u-VTs"/>
+        <segue reference="t9X-mq-fRy"/>
     </inferredMetricsTieBreakers>
 </document>

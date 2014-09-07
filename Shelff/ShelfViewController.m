@@ -10,6 +10,7 @@
 #import "SWRevealViewController.h"
 #import "ShoeDetailViewController.h"
 #import "UploadViewController.h"
+#import "WebViewController.h"
 
 @interface ShelfViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIActionSheetDelegate>
 
@@ -84,8 +85,8 @@
 
 - (IBAction)onProfileButtonPressed:(id)sender
 {
-    NSURL *url = [NSURL URLWithString:self.thisCustomer[@"FBLink"]];
-    [[UIApplication sharedApplication] openURL:url];
+//    NSURL *url = [NSURL URLWithString:self.thisCustomer[@"FBLink"]];
+//    [[UIApplication sharedApplication] openURL:url];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -101,6 +102,9 @@
         vc.shoe = [self.shoeArray objectAtIndex:[self.collectionView2 indexPathForCell:(UICollectionViewCell *)sender].row];
     }else if ([segue.identifier isEqualToString:@"logoutSegue"]) {
 
+    } else if ([segue.identifier isEqualToString:@"toWebView"]) {
+        WebViewController *wvc = segue.destinationViewController;
+        wvc.displayURL = [NSURL URLWithString:self.thisCustomer[@"FBLink"]];
     }
 }
 

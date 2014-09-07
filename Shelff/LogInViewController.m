@@ -37,6 +37,7 @@
 
     //requesting information
     self.fbLogInView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+
 }
 
 #pragma mark - FBLoginViewDelegate
@@ -65,14 +66,14 @@
                     NSLog(@"saved");
                     //set current customer as Parse
                     [PFCustomer setCurrentCustomer:(PFCustomer *)customer];
+                    self.continueButton.hidden = NO;
                 }
             }];
 
         } else if (object) {
-           // NSLog(@"existing user"); //Existing user
-
             //set current customer as Parse
             [PFCustomer setCurrentCustomer:(PFCustomer *)object];
+            self.continueButton.hidden = NO;
 
         } else if (error) {
             NSLog(@"error : %@",error);
@@ -85,7 +86,7 @@
 -(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
 {
     //Logged In User Experience
-    self.continueButton.hidden = NO;
+   // self.continueButton.hidden = NO;
 
     //TODO: Perform segue to next VC
     //[self performSegueWithIdentifier:@"continueSegue" sender:self];
