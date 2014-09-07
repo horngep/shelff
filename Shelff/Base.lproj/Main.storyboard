@@ -248,7 +248,6 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="onProfileButtonPressed:" destination="Zpp-e4-X5Z" eventType="touchUpInside" id="QSg-55-Qdh"/>
                                             <segue destination="dey-e5-I90" kind="push" identifier="toWebView" id="0Fv-zv-xty"/>
                                         </connections>
                                     </button>

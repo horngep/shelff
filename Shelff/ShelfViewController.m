@@ -82,13 +82,6 @@
     self.collectionView2.hidden = NO;
 }
 
-
-- (IBAction)onProfileButtonPressed:(id)sender
-{
-//    NSURL *url = [NSURL URLWithString:self.thisCustomer[@"FBLink"]];
-//    [[UIApplication sharedApplication] openURL:url];
-}
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"addShoeSegue"]) {
