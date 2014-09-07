@@ -511,7 +511,7 @@
 				GCC_PREFIX_HEADER = "Shelff/Shelff-Prefix.pch";
 				INFOPLIST_FILE = "Shelff/Shelff-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2f878c5a-716c-45fe-af48-67ec772848e8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -531,7 +531,7 @@
 				GCC_PREFIX_HEADER = "Shelff/Shelff-Prefix.pch";
 				INFOPLIST_FILE = "Shelff/Shelff-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d19bf65e-9a3b-4ab5-a333-95c04be9b07f";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
