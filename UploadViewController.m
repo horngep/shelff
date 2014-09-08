@@ -11,7 +11,7 @@
 #import "PFCustomer.h"
 
 
-@interface UploadViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIScrollViewDelegate, UITextFieldDelegate>
+@interface UploadViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIScrollViewDelegate, UITextFieldDelegate, UIActionSheetDelegate>
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
@@ -32,8 +32,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self showImagePicker];
     self.shoePics = [NSMutableArray new]; //array of images
+
+    
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Upload Shoe Photo" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
+                            @"Camera Roll", @"Camera",
+                            nil];
+    [popup showInView:[UIApplication sharedApplication].keyWindow];
+
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -87,6 +93,15 @@
     [self presentViewController:picker animated:YES completion:nil];
 }
 
+-(void)showCarera
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    picker.allowsEditing = YES;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
 #pragma mark - action
 - (IBAction)onSizeSliderChange:(id)sender
 {
@@ -96,11 +111,31 @@
 
 - (IBAction)addButtonPressed:(id)sender
 {
+
     if (self.shoePics.count == kNoOfPhotoAllow) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"NO MORE!" message:@"you can only upload 5 photo per shoe!" delegate:self cancelButtonTitle:@"Fine :(" otherButtonTitles:nil, nil];
         [alert show];
     } else {
-        [self showImagePicker];
+        //show action sheet to choose between Camera or CameraRoll
+        UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Upload Shoe Photo" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
+                                @"Camera Roll", @"Camera",
+                                nil];
+        [popup showInView:[UIApplication sharedApplication].keyWindow];
+    }
+}
+
+#pragma mark - Action Sheet Delegate
+- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+    switch (buttonIndex) {
+        case 0:
+            [self showImagePicker];
+            break;
+        case 1:
+            [self showCarera];
+            break;
+        default:
+            break;
     }
 }
 

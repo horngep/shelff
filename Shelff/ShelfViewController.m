@@ -12,7 +12,7 @@
 #import "UploadViewController.h"
 #import "WebViewController.h"
 
-@interface ShelfViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIActionSheetDelegate>
+@interface ShelfViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIActionSheetDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePictureView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -41,8 +41,8 @@
     
     self.shoeArray = [NSArray new];
     self.shoePhotoArray = [NSMutableArray new]; // for display
+    self.collectionView.hidden = NO;
     self.collectionView2.hidden = YES; //hide multiple initially
-
 
     [self setSideBar];
     [self profileSetUp];
@@ -187,7 +187,7 @@
 #pragma mark - unwind from Upload VC
 - (IBAction)unwindToShelfViewController:(UIStoryboardSegue *)unwindSegue
 {
-    UploadViewController *uvc = unwindSegue.sourceViewController;
+    //UploadViewController *uvc = unwindSegue.sourceViewController;
 }
 
 
@@ -203,11 +203,12 @@
         UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
 
         //details
-        imageView.frame = CGRectMake(0, 0, 319, 319); //big imageView
+        imageView.frame = CGRectMake(0, 0, 312, 312); //big imageView
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         for (UIView *subview in [cell.contentView subviews]) {
             [subview removeFromSuperview];
         }
+        cell.backgroundColor = [UIColor orangeColor];
 
         [cell.contentView addSubview:imageView];
         return cell;
@@ -226,6 +227,7 @@
             [subview removeFromSuperview];
         }
 
+        cell.backgroundColor = [UIColor orangeColor];
         [cell.contentView addSubview:imageView];
         return cell;
     } else {
@@ -234,12 +236,17 @@
     }
 }
 
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(303 , 303);
+}
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     //NSLog(@"COUNT %d",self.shoePhotoArray.count);
     return self.shoePhotoArray.count;
 }
+
 
 
 @end

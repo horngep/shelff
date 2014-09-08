@@ -187,8 +187,6 @@
 				84A72F6519B2334900F5B52F /* Sidebar */,
 				84A72F6419B2333800F5B52F /* Starting */,
 				8443D99319B0C8DA008E2369 /* Main.storyboard */,
-				84AF62FD19BCC0EA00767CC0 /* WebViewController.h */,
-				84AF62FE19BCC0EA00767CC0 /* WebViewController.m */,
 				8443D9CE19B21FBC008E2369 /* ShelfViewController.h */,
 				8443D9CF19B21FBC008E2369 /* ShelfViewController.m */,
 				84DF6F4F19B7B68A00BF311A /* ShoeDetailViewController.h */,
@@ -197,6 +195,8 @@
 				84A72F6A19B23F6E00F5B52F /* FriendListViewController.m */,
 				841F10FC19B647490091C90F /* UploadViewController.h */,
 				841F10FD19B647490091C90F /* UploadViewController.m */,
+				84AF62FD19BCC0EA00767CC0 /* WebViewController.h */,
+				84AF62FE19BCC0EA00767CC0 /* WebViewController.m */,
 				8443D99919B0C8DA008E2369 /* Images.xcassets */,
 				8443D98819B0C8DA008E2369 /* Supporting Files */,
 			);
@@ -460,6 +460,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "d19bf65e-9a3b-4ab5-a333-95c04be9b07f";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -491,6 +492,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PROVISIONING_PROFILE = "2f878c5a-716c-45fe-af48-67ec772848e8";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -511,7 +513,7 @@
 				GCC_PREFIX_HEADER = "Shelff/Shelff-Prefix.pch";
 				INFOPLIST_FILE = "Shelff/Shelff-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2f878c5a-716c-45fe-af48-67ec772848e8";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -531,7 +533,7 @@
 				GCC_PREFIX_HEADER = "Shelff/Shelff-Prefix.pch";
 				INFOPLIST_FILE = "Shelff/Shelff-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d19bf65e-9a3b-4ab5-a333-95c04be9b07f";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
