@@ -90,9 +90,12 @@
         ShoeDetailViewController *vc = segue.destinationViewController;
         vc.shoe = [self.shoeArray objectAtIndex:[self.collectionView indexPathForCell:(UICollectionViewCell *)sender].row];
         vc.thisCustomer = self.thisCustomer;
+
     } else if ([segue.identifier isEqualToString:@"shoeDetailSegue2"]) {
         ShoeDetailViewController *vc = segue.destinationViewController;
         vc.shoe = [self.shoeArray objectAtIndex:[self.collectionView2 indexPathForCell:(UICollectionViewCell *)sender].row];
+        vc.thisCustomer = self.thisCustomer;
+
     }else if ([segue.identifier isEqualToString:@"logoutSegue"]) {
 
     } else if ([segue.identifier isEqualToString:@"toWebView"]) {

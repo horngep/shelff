@@ -587,7 +587,7 @@
                                 <color key="pageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="hahaha" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5n-5I-CrM">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Welcome to Shelf." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5n-5I-CrM">
                                 <rect key="frame" x="44" y="72" width="231" height="73"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -603,7 +603,7 @@
                         <outlet property="pageControl" destination="UQG-Ui-pKU" id="zYj-aV-jUe"/>
                         <outlet property="scrollView" destination="nW1-ro-qSG" id="jNI-kJ-4rh"/>
                         <outlet property="welcomeTextView" destination="M5n-5I-CrM" id="QBr-4f-ZWX"/>
-                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="toLoginView" id="D55-ce-jQi"/>
+                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="toLoginView" animates="NO" id="D55-ce-jQi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lfe-d7-vbc" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -71,12 +71,16 @@
             [shoe setObject:file forKey:[NSString stringWithFormat:@"Photo%d",i]];
         }
 
-        UIApplication* app = [UIApplication sharedApplication]; //netWorkActivityIndicator
-        app.networkActivityIndicatorVisible = YES;
+        UIActivityIndicatorView *activityView=[[UIActivityIndicatorView alloc]     initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        activityView.center=self.view.center;
+        [activityView startAnimating];
+        [self.view addSubview:activityView];
 
         [shoe saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (!error) {
-                app.networkActivityIndicatorVisible = NO;
+
+                [activityView stopAnimating];
+                [activityView removeFromSuperview];
                 NSLog(@"photo saved");
                 [self performSegueWithIdentifier:@"unwindToShelf" sender:self];
             }

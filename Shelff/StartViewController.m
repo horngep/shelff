@@ -22,7 +22,11 @@
 {
     [super viewDidLoad];
 
-    //TODO: only show this view if its the first time useing this app
+    //For the first time use to look more smooth
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"firstTime"]) {
+        self.view.backgroundColor = [UIColor colorWithRed:0.013 green:0.086 blue:0.21 alpha:1];
+        return;
+    }
 
     self.scrollView.contentSize = CGSizeMake(3*320, 568);
     self.scrollView.pagingEnabled = YES;
@@ -59,6 +63,19 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    //First time using the app
+    [super viewDidAppear:NO];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"firstTime"]) {
+        [self performSegueWithIdentifier:@"toLoginView" sender:@"ivan"];
+        return;
+    } else {
+        [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:@"firstTime"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
 -(void)buttonPressed
 {
     [self performSegueWithIdentifier: @"toLoginView" sender: self];
@@ -71,13 +88,15 @@
     int page = scrollView.contentOffset.x / scrollView.frame.size.width;
     self.pageControl.currentPage = page;
 
+    [self.welcomeTextView setTextAlignment:NSTextAlignmentJustified];
+
     if (self.pageControl.currentPage == 0 ) {
-        self.welcomeTextView.text = @"screen 1";
+        self.welcomeTextView.text = @"Welcome to Shelf";
             self.welcomeTextView.backgroundColor = [UIColor colorWithWhite:0.5f alpha:0.3];
 
 
     } else if (self.pageControl.currentPage == 1) {
-        self.welcomeTextView.text = @"screen 2";
+        self.welcomeTextView.text = @"Shelf is a place for you to show off your shoes to your friends.";
             self.welcomeTextView.backgroundColor = [UIColor colorWithWhite:0.5f alpha:0.3];
 
     } else if (self.pageControl.currentPage == 2) {
