@@ -161,13 +161,13 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Shoe"];
     [query whereKey:@"owner" equalTo:self.thisCustomer];
-    [query orderByAscending:@"createAt"]; //TODO: get the newest on top (this is not working)
+    [query orderByDescending:@"updatedAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
 
         self.shoeArray = objects;
 
-        //TODO: BUGGY
         for (PFObject *shoe in self.shoeArray) {
+
             PFFile *file = [shoe objectForKey:@"Photo0"];
             [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                 if (!error) {
@@ -177,8 +177,12 @@
                     [self.collectionView reloadData];
                     [self.collectionView2 reloadData];
                 }
+                NSLog(@"OBJECTS: %@",self.shoePhotoArray);
+
             }];
         }
+
+
     }];
 }
 
