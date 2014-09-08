@@ -55,7 +55,6 @@
                 firstLabel.textColor = [UIColor greenColor];
                 [self.scrollView addSubview:firstLabel];
             }
-
         }
     }
 }

@@ -122,13 +122,19 @@
 {
     if (!self.thisCustomer) { //if not send from other one
 
-        //TODO: solve potential log in bug here
         self.thisCustomer = [PFCustomer currentCustomer]; //got user
         self.plusBarButton.title = @"Add";
+        NSLog(@"New  : %@",self.thisCustomer);
 
     } else {
-        NSLog(@"your Friend's Shelf: %@",self.thisCustomer);
-        self.plusBarButton.title = @". . .";
+        if ([self.thisCustomer isEqual:[PFCustomer currentCustomer]]){
+            self.plusBarButton.title = @"Add";
+
+        } else {
+            NSLog(@"your Friend's Shelf: %@",self.thisCustomer);
+            self.plusBarButton.title = @". . .";
+        }
+
     }
 
     NSString *profileID = self.thisCustomer[@"FBid"];
