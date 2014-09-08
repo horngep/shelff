@@ -221,8 +221,7 @@
         for (UIView *subview in [cell.contentView subviews]) {
             [subview removeFromSuperview];
         }
-        cell.backgroundColor = [UIColor orangeColor];
-
+        cell.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1];
         [cell.contentView addSubview:imageView];
         return cell;
 
@@ -240,7 +239,7 @@
             [subview removeFromSuperview];
         }
 
-        cell.backgroundColor = [UIColor orangeColor];
+        cell.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1];
         [cell.contentView addSubview:imageView];
         return cell;
     } else {
