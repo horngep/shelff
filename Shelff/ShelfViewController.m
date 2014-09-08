@@ -223,6 +223,9 @@
         }
         cell.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1];
         [cell.contentView addSubview:imageView];
+        cell.layer.borderWidth=5.0f;
+        cell.layer.borderColor=[UIColor colorWithRed:0.45 green:0.43 blue:0.4 alpha:1].CGColor;
+
         return cell;
 
     } else if ([collectionView isEqual:self.collectionView2]) { //for multiple
@@ -241,11 +244,16 @@
 
         cell.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1];
         [cell.contentView addSubview:imageView];
+        cell.layer.borderWidth=1.0f;
+        cell.layer.borderColor=[UIColor colorWithRed:0.45 green:0.43 blue:0.4 alpha:1].CGColor;
+
         return cell;
     } else {
         NSLog(@"ERROR with CollectionView Delegate!");
         return nil;
     }
+
+
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
