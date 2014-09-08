@@ -240,7 +240,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="at5-Ja-Ilv">
-                                        <rect key="frame" x="127" y="73" width="64" height="25"/>
+                                        <rect key="frame" x="127" y="73" width="173" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.97156010839999996" green="0.97156010839999996" blue="0.97156010839999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Profile">

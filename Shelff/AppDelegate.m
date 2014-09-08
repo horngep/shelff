@@ -28,11 +28,12 @@
 
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions]; //for tracking statisticv
 
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.38 green:0.35 blue:0.32 alpha:1]];
+    //[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.38 green:0.35 blue:0.32 alpha:1]];
 
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.67 green:0.81 blue:0.75 alpha:1]];
+    //[[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.67 green:0.81 blue:0.75 alpha:1]];
     return YES;
 }
+
 #pragma mark - Handling the Response from the Facebook app
 //overiding
 - (BOOL)application:(UIApplication *)application
