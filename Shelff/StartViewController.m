@@ -12,7 +12,7 @@
 @interface StartViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
-@property (weak, nonatomic) IBOutlet UITextView *welcomeTextView;
+@property (weak, nonatomic) IBOutlet UILabel *welcomeTextLabel;
 
 @end
 
@@ -27,13 +27,14 @@
         self.view.backgroundColor = [UIColor colorWithRed:0.013 green:0.086 blue:0.21 alpha:1];
         return;
     }
+    self.view.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
 
+    
     self.scrollView.contentSize = CGSizeMake(3*320, 568);
     self.scrollView.pagingEnabled = YES;
     self.pageControl.numberOfPages = 3;
     self.pageControl.currentPage = 0;
 
-    self.welcomeTextView.backgroundColor = [UIColor colorWithWhite:0.5f alpha:0.1];
 
     for (int i = 0; i < 3; i++) {
         UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"background%d.png",i+1]]];
@@ -88,21 +89,22 @@
     int page = scrollView.contentOffset.x / scrollView.frame.size.width;
     self.pageControl.currentPage = page;
 
-    [self.welcomeTextView setTextAlignment:NSTextAlignmentJustified];
+    self.welcomeTextLabel.numberOfLines = 3;
 
     if (self.pageControl.currentPage == 0 ) {
-        self.welcomeTextView.text = @"Welcome to Shelf";
-            self.welcomeTextView.backgroundColor = [UIColor colorWithWhite:0.5f alpha:0.3];
+        self.welcomeTextLabel.text = @"Welcome to Shelf";
 
 
     } else if (self.pageControl.currentPage == 1) {
-        self.welcomeTextView.text = @"Shelf is a place for you to show off your shoes to your friends.";
-            self.welcomeTextView.backgroundColor = [UIColor colorWithWhite:0.5f alpha:0.3];
+        self.welcomeTextLabel.text = @"Shelf is a place for you to show off your shoes to your friends.";
 
     } else if (self.pageControl.currentPage == 2) {
-        self.welcomeTextView.text = @"";
-            self.welcomeTextView.backgroundColor = [UIColor colorWithWhite:0.5f alpha:0];
+        self.welcomeTextLabel.text = @"";
     }
+}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+
 }
 
 

@@ -79,6 +79,9 @@
     self.profileButton.layer.cornerRadius = 5;
     self.profileButton.layer.masksToBounds = YES;
 
+    self.bigButton1.backgroundColor = [UIColor colorWithRed:0.19 green:0.14 blue:0.2 alpha:0.5];
+    self.bigButton2.backgroundColor = [UIColor whiteColor];
+
     self.collectionView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
     self.collectionView2.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
 
@@ -108,12 +111,16 @@
 {
     self.collectionView.hidden = NO; //show single
     self.collectionView2.hidden = YES; //hide multiple
+    self.bigButton1.backgroundColor = [UIColor colorWithRed:0.19 green:0.14 blue:0.2 alpha:0.5];
+    self.bigButton2.backgroundColor = [UIColor whiteColor];
 }
 
 - (IBAction)onDisplayMultipleCollectionViewButtonClick:(id)sender
 {
     self.collectionView.hidden = YES;
     self.collectionView2.hidden = NO;
+    self.bigButton2.backgroundColor = [UIColor colorWithRed:0.19 green:0.14 blue:0.2 alpha:0.5];
+    self.bigButton1.backgroundColor = [UIColor whiteColor];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

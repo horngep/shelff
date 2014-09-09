@@ -27,7 +27,8 @@
 {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor colorWithRed:0.013 green:0.086 blue:0.21 alpha:1];
+    //self.view.backgroundColor = [UIColor colorWithRed:0.013 green:0.086 blue:0.21 alpha:1];
+    self.view.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
 
     //FirstTime Logging in
     self.nameLabel.text = @"Please Log In to continue";
