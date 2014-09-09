@@ -33,7 +33,7 @@
 {
     [super viewDidLoad];
 
-    self.title = @"Shelf";
+    self.title = @"Shelff";
 
     self.collectionView.pagingEnabled = YES;
     [self designEnable];
