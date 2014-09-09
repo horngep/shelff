@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UISlider *sizeSliderBar;
 @property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *uploadButton;
 
 @property NSMutableArray *shoePics;
 
@@ -33,7 +34,10 @@
 {
     [super viewDidLoad];
     self.shoePics = [NSMutableArray new]; //array of images
-
+    self.uploadButton.layer.cornerRadius = 3;
+    self.uploadButton.layer.masksToBounds = YES;
+    self.nameTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    
     
     UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Upload Shoe Photo" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
                             @"Camera Roll", @"Camera",
@@ -117,7 +121,7 @@
 {
 
     if (self.shoePics.count == kNoOfPhotoAllow) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"NO MORE!" message:@"you can only upload 5 photo per shoe!" delegate:self cancelButtonTitle:@"Fine :(" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"NO MORE!" message:@"you can only upload 6 photo per shoe!" delegate:self cancelButtonTitle:@"Fine :(" otherButtonTitles:nil, nil];
         [alert show];
     } else {
         //show action sheet to choose between Camera or CameraRoll
@@ -164,7 +168,7 @@
 
 - (void) animateTextField: (UITextField *)textField up: (BOOL) up
 {
-    const int movementDistance = 140; // tweak as needed
+    const int movementDistance = 200; // tweak as needed
     const float movementDuration = 0.3f; // tweak as needed
 
     int movement = (up ? -movementDistance : movementDistance);

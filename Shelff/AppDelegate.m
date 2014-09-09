@@ -28,9 +28,12 @@
 
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions]; //for tracking statisticv
 
-    //[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.38 green:0.35 blue:0.32 alpha:1]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.19 green:0.14 blue:0.2 alpha:1]];
 
-    //[[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.67 green:0.81 blue:0.75 alpha:1]];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithWhite:1.0 alpha:1.0]];
+
+    [[UINavigationBar appearance]setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+
     return YES;
 }
 

@@ -20,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *plusBarButton;
 @property (weak, nonatomic) IBOutlet UIButton *profileButton;
 @property (weak, nonatomic) IBOutlet UILabel *customerLabel;
+@property (weak, nonatomic) IBOutlet UIView *upperView;
+@property (weak, nonatomic) IBOutlet UIButton *bigButton1;
+@property (weak, nonatomic) IBOutlet UIButton *bigButton2;
 @property NSMutableArray *shoePhotoArray;
 @property NSArray *shoeArray;
 @end
@@ -29,9 +32,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //self.view.backgroundColor = [UIColor colorWithRed:0.67 green:0.8 blue:0.75 alpha:1];
-    //self.collectionView.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1];
-    //self.collectionView2.backgroundColor =[UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1];
+
+    self.title = @"Shelf";
 
     self.collectionView.pagingEnabled = YES;
     [self designEnable];
@@ -56,16 +58,29 @@
 
 -(void)designEnable
 {
+    self.upperView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
+    self.view.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
+
+
+    self.bigButton1.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
+    self.bigButton2.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
+    self.bigButton1.layer.cornerRadius = 5;
+    self.bigButton2.layer.cornerRadius = 5;
+    self.bigButton1.layer.masksToBounds = YES;
+    self.bigButton2.layer.masksToBounds = YES;
+
+
     self.profilePictureView.layer.borderColor = [UIColor whiteColor].CGColor;
     self.profilePictureView.layer.borderWidth = 3.0f;
     self.profilePictureView.layer.cornerRadius = 30;
     self.profilePictureView.layer.masksToBounds = YES;
 
+    self.profileButton.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
     self.profileButton.layer.cornerRadius = 5;
     self.profileButton.layer.masksToBounds = YES;
 
-    self.collectionView.backgroundColor = [UIColor whiteColor];
-    self.collectionView2.backgroundColor = [UIColor whiteColor];
+    self.collectionView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
+    self.collectionView2.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
 
 
 }
@@ -75,10 +90,10 @@
 
 - (IBAction)onRightBarButtonItemPressed:(id)sender
 {
-    if ([self.plusBarButton.title isEqual:@"Add"]) {
+    if ([self.plusBarButton.title isEqual:@"Add Shoe"]) {
         [self performSegueWithIdentifier:@"addShoeSegue" sender:self];
 
-    } else if ([self.plusBarButton.title isEqual:@". . ."]){
+    } else if ([self.plusBarButton.title isEqual:@"Report"]){
         // action sheet
         UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Do you want to report this person ?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
                                 @"Report",
@@ -145,16 +160,16 @@
     if (!self.thisCustomer) { //if not send from other one
 
         self.thisCustomer = [PFCustomer currentCustomer]; //got user
-        self.plusBarButton.title = @"Add";
+        self.plusBarButton.title = @"Add Shoe";
         NSLog(@"New  : %@",self.thisCustomer);
 
     } else {
         if ([self.thisCustomer isEqual:[PFCustomer currentCustomer]]){
-            self.plusBarButton.title = @"Add";
+            self.plusBarButton.title = @"Add Shoe";
 
         } else {
             NSLog(@"your Friend's Shelf: %@",self.thisCustomer);
-            self.plusBarButton.title = @". . .";
+            self.plusBarButton.title = @"Report";
         }
 
     }
@@ -196,7 +211,6 @@
                     [self.collectionView reloadData];
                     [self.collectionView2 reloadData];
                 }
-                NSLog(@"OBJECTS: %@",self.shoePhotoArray);
 
             }];
         }
@@ -272,6 +286,7 @@
 
 }
 
+//fixing the offset of cells when scroll
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return CGSizeMake(303 , 303);

@@ -9,7 +9,7 @@
 #import "ShoeDetailViewController.h"
 #import "PFCustomer.h"
 
-@interface ShoeDetailViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate>
+@interface ShoeDetailViewController () <UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
@@ -43,7 +43,17 @@
         [self.navigationItem setRightBarButtonItems:nil animated:YES];
     }
 
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+
+    [self designEnable];
+}
+
+-(void)designEnable
+{
+
+    self.view.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
+    self.collectionView.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
+
+
 
 }
 
@@ -71,7 +81,7 @@
 #pragma mark - delete shoe
 - (IBAction)trashButtonClick:(id)sender
 {
-    UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"Delete" message:@"Are you sure you want to delete this shoe ?" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"Delete", nil];
+    UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"Delete" message:@"Are you sure you want to delete this shoe?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
     [deleteAlert show];
 }
 
@@ -102,10 +112,16 @@
         [subview removeFromSuperview];
     }
 
-    cell.backgroundColor = [UIColor whiteColor];
+    cell.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
 
     [cell.contentView addSubview:imageView];
     return cell;
+}
+
+//fixing the offset of cells when scroll
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(311 , 311);
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -119,6 +135,5 @@
     int page = scrollView.contentOffset.x / scrollView.frame.size.width;
     self.pageControl.currentPage = page;
 }
-
 
 @end

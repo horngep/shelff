@@ -27,9 +27,7 @@
 {
     [super viewDidLoad];
 
-    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"con"]];
     self.view.backgroundColor = [UIColor colorWithRed:0.013 green:0.086 blue:0.21 alpha:1];
-
 
     //FirstTime Logging in
     self.nameLabel.text = @"Please Log In to continue";
@@ -45,8 +43,8 @@
 -(void)designEnable
 {
     self.profilePictureView.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.profilePictureView.layer.borderWidth = 3.0f;
-    self.profilePictureView.layer.cornerRadius = 37;
+    self.profilePictureView.layer.borderWidth = 4.0f;
+    self.profilePictureView.layer.cornerRadius = 65;
     self.profilePictureView.layer.masksToBounds = YES;
 
     self.fbLogInView.layer.cornerRadius = 10;
@@ -99,11 +97,6 @@
 
 -(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
 {
-    //Logged In User Experience
-   // self.continueButton.hidden = NO;
-
-    //TODO: Perform segue to next VC
-    //[self performSegueWithIdentifier:@"continueSegue" sender:self];
 
 }
 

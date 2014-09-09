@@ -33,11 +33,10 @@
 {
     [super viewDidLoad];
 
-    //self.view.backgroundColor = [UIColor colorWithRed:0.99 green:0.97 blue:0.83 alpha:1];
-    self.tableView.backgroundColor = [UIColor colorWithRed:0.99 green:0.97 blue:0.83 alpha:1];
+    self.view.backgroundColor = [UIColor colorWithRed:0.27 green:0.18 blue:0.25 alpha:1];
 
-    self.tableView.separatorColor = [UIColor blackColor];
-
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.27 green:0.18 blue:0.25 alpha:1];
+    self.tableView.separatorColor = [UIColor colorWithRed:0.27 green:0.18 blue:0.25 alpha:1];
 }
 
 #pragma mark - Table view data source
@@ -78,12 +77,13 @@
     }
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier forIndexPath: indexPath];
+    cell.selectedBackgroundView.backgroundColor = [UIColor blackColor];
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.backgroundColor = [UIColor colorWithRed:0.99 green:0.97 blue:0.83 alpha:1];
+    cell.backgroundColor = [UIColor colorWithRed:0.27 green:0.18 blue:0.25 alpha:0.5];
 
 
 }

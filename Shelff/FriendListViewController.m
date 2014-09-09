@@ -21,7 +21,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Collectors";
+    
+    self.title = @"Friends";
     self.friends = [NSMutableArray new];
 
     [self setSideBar];
@@ -41,11 +42,14 @@
         //Parse
         for (NSDictionary<FBGraphUser>* friend in FBfriends) {
             PFQuery *query = [PFQuery queryWithClassName:@"Customer"];
-            [query orderByAscending:@"Customer"];
+            [query orderByAscending:@"FBName"];
             [query whereKey:@"FBid" equalTo:friend.objectID];
 
             [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
                 [self.friends addObject:object]; //array of Friends in Parse
+                //get photo here
+
+
                 [self.tableView reloadData];
             }];
 
