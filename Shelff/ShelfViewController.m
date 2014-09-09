@@ -52,6 +52,9 @@
     [self profileSetUp];
     [self getShoes];
 
+    self.bigButton1.backgroundColor = [UIColor colorWithRed:0.19 green:0.14 blue:0.2 alpha:0.5];
+    self.bigButton2.backgroundColor = [UIColor whiteColor];
+
     [self.collectionView reloadData];
     [self.collectionView2 reloadData];
 }
@@ -79,8 +82,7 @@
     self.profileButton.layer.cornerRadius = 5;
     self.profileButton.layer.masksToBounds = YES;
 
-    self.bigButton1.backgroundColor = [UIColor colorWithRed:0.19 green:0.14 blue:0.2 alpha:0.5];
-    self.bigButton2.backgroundColor = [UIColor whiteColor];
+
 
     self.collectionView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
     self.collectionView2.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
