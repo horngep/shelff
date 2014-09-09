@@ -10,8 +10,6 @@
 #import "SWRevealViewController.h"
 #import "ShelfViewController.h"
 
-
-
 @interface FriendListViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *friends; //array of friends from Parse

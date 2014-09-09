@@ -38,6 +38,20 @@
     //requesting information
     self.fbLogInView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
 
+    [self designEnable];
+
+}
+
+-(void)designEnable
+{
+    self.profilePictureView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.profilePictureView.layer.borderWidth = 3.0f;
+    self.profilePictureView.layer.cornerRadius = 37;
+    self.profilePictureView.layer.masksToBounds = YES;
+
+    self.fbLogInView.layer.cornerRadius = 10;
+    self.fbLogInView.layer.masksToBounds = YES;
+
 }
 
 #pragma mark - FBLoginViewDelegate

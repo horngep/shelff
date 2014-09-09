@@ -338,7 +338,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.35441728032792497" green="0.65433673469387754" blue="0.5611429845967415" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="kHo-Yz-OJG">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="hZV-bx-EkP">
@@ -352,6 +352,7 @@
                         <outlet property="collectionView2" destination="Vsb-RJ-TJa" id="6Bn-nf-za5"/>
                         <outlet property="customerLabel" destination="gp7-gM-dLn" id="K23-79-gjO"/>
                         <outlet property="plusBarButton" destination="hZV-bx-EkP" id="kdk-ZC-lZq"/>
+                        <outlet property="profileButton" destination="at5-Ja-Ilv" id="cvg-hq-og7"/>
                         <outlet property="profilePictureView" destination="Lev-ae-Dme" id="qbt-Vi-FfA"/>
                         <segue destination="Mys-Ai-ZAM" kind="push" identifier="addShoeSegue" id="YjN-kB-TdK"/>
                     </connections>

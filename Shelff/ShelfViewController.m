@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView2;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *plusBarButton;
+@property (weak, nonatomic) IBOutlet UIButton *profileButton;
 @property (weak, nonatomic) IBOutlet UILabel *customerLabel;
 @property NSMutableArray *shoePhotoArray;
 @property NSArray *shoeArray;
@@ -33,6 +34,7 @@
     //self.collectionView2.backgroundColor =[UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1];
 
     self.collectionView.pagingEnabled = YES;
+    [self designEnable];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -51,6 +53,23 @@
     [self.collectionView reloadData];
     [self.collectionView2 reloadData];
 }
+
+-(void)designEnable
+{
+    self.profilePictureView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.profilePictureView.layer.borderWidth = 3.0f;
+    self.profilePictureView.layer.cornerRadius = 30;
+    self.profilePictureView.layer.masksToBounds = YES;
+
+    self.profileButton.layer.cornerRadius = 5;
+    self.profileButton.layer.masksToBounds = YES;
+
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView2.backgroundColor = [UIColor whiteColor];
+
+
+}
+
 
 #pragma mark - Actions
 
@@ -221,10 +240,9 @@
         for (UIView *subview in [cell.contentView subviews]) {
             [subview removeFromSuperview];
         }
-        cell.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1];
+        cell.backgroundColor = [UIColor whiteColor];
         [cell.contentView addSubview:imageView];
-        cell.layer.borderWidth=5.0f;
-        cell.layer.borderColor=[UIColor colorWithRed:0.45 green:0.43 blue:0.4 alpha:1].CGColor;
+
 
         return cell;
 
@@ -242,10 +260,8 @@
             [subview removeFromSuperview];
         }
 
-        cell.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1];
+        cell.backgroundColor = [UIColor whiteColor];
         [cell.contentView addSubview:imageView];
-        cell.layer.borderWidth=1.0f;
-        cell.layer.borderColor=[UIColor colorWithRed:0.45 green:0.43 blue:0.4 alpha:1].CGColor;
 
         return cell;
     } else {

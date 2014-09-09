@@ -42,7 +42,11 @@
     if (![self.thisCustomer isEqual:[PFCustomer currentCustomer]]) {
         [self.navigationItem setRightBarButtonItems:nil animated:YES];
     }
+
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+
 }
+
 
 -(void)getPhotoFromParse
 {
@@ -97,6 +101,8 @@
     for (UIView *subview in [cell.contentView subviews]) {
         [subview removeFromSuperview];
     }
+
+    cell.backgroundColor = [UIColor whiteColor];
 
     [cell.contentView addSubview:imageView];
     return cell;
