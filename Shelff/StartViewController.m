@@ -45,9 +45,10 @@
             UIButton *nextButton = [[UIButton alloc] init];
             
             [nextButton setTitle:@"Get Started" forState:UIControlStateNormal];
-            nextButton.titleLabel.font = [UIFont systemFontOfSize:15];
+            nextButton.titleLabel.font = [UIFont systemFontOfSize:17];
+
             [nextButton setFrame:CGRectMake(121 + (imageView.frame.size.width *2), 480, 90, 30)];
-            nextButton.titleLabel.textColor = [UIColor greenColor];
+            nextButton.titleLabel.textColor = [UIColor colorWithWhite:0.9 alpha:1];
 
             [nextButton addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchDown];
             [self.scrollView addSubview:nextButton];
@@ -82,7 +83,6 @@
     [self performSegueWithIdentifier: @"toLoginView" sender: self];
 }
 
-
 #pragma mark - Scroll View Delegate
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
@@ -94,9 +94,8 @@
     if (self.pageControl.currentPage == 0 ) {
         self.welcomeTextLabel.text = @"Welcome to Shelf";
 
-
     } else if (self.pageControl.currentPage == 1) {
-        self.welcomeTextLabel.text = @"Shelf is a place for you to show off your shoes to your friends.";
+        self.welcomeTextLabel.text = @"Shelf is a place for you to show off your shoes collections to your friends.";
 
     } else if (self.pageControl.currentPage == 2) {
         self.welcomeTextLabel.text = @"";
