@@ -112,7 +112,7 @@
         [subview removeFromSuperview];
     }
 
-    cell.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
+    cell.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
 
     [cell.contentView addSubview:imageView];
     return cell;

@@ -627,7 +627,7 @@
                                     <outlet property="delegate" destination="7eI-aY-qgv" id="D3g-av-AFx"/>
                                 </connections>
                             </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="UQG-Ui-pKU">
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="UQG-Ui-pKU">
                                 <rect key="frame" x="139" y="25" width="42" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="pageIndicatorTintColor" red="0.1215686351" green="0.054901964960000001" blue="0.231372565" alpha="1" colorSpace="deviceRGB"/>
@@ -643,6 +643,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="UQG-Ui-pKU" secondAttribute="trailing" constant="139" id="Nu5-4x-eif"/>
+                            <constraint firstItem="UQG-Ui-pKU" firstAttribute="leading" secondItem="epS-2m-Eka" secondAttribute="leading" constant="139" id="Nw7-Qx-70H"/>
                             <constraint firstItem="0My-W7-4Ja" firstAttribute="leading" secondItem="epS-2m-Eka" secondAttribute="leading" constant="43" id="VtJ-Ne-wgU"/>
                             <constraint firstItem="UQG-Ui-pKU" firstAttribute="top" secondItem="jUk-Vs-ZVq" secondAttribute="bottom" constant="5" id="bPd-sU-0iT"/>
                             <constraint firstAttribute="trailing" secondItem="0My-W7-4Ja" secondAttribute="trailing" constant="43" id="owc-eX-6pm"/>
