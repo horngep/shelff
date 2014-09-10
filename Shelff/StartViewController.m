@@ -44,23 +44,23 @@
         if (i == 2) { //add button on the last view
             UIButton *nextButton = [[UIButton alloc] init];
             
-            [nextButton setTitle:@"Get Started" forState:UIControlStateNormal];
-            nextButton.titleLabel.font = [UIFont systemFontOfSize:17];
+            [nextButton setTitle:@"Continue" forState:UIControlStateNormal];
+            nextButton.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:15];
 
-            [nextButton setFrame:CGRectMake(121 + (imageView.frame.size.width *2), 480, 90, 30)];
-            nextButton.titleLabel.textColor = [UIColor colorWithWhite:0.9 alpha:1];
+            [nextButton setFrame:CGRectMake(111 + (imageView.frame.size.width *2), 120, 100, 30)];
+            nextButton.titleLabel.textColor = [UIColor colorWithRed:0 green:0.42 blue:0.85 alpha:1];
 
             [nextButton addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchDown];
             [self.scrollView addSubview:nextButton];
 
-            if (i == 1) { //label for first launch image
-                UILabel *firstLabel = [[UILabel alloc]init];
-                firstLabel.font = [UIFont fontWithName:@"Georgia" size:36];
-                [firstLabel setText:@"Shelf The digital closet for your sneakers"];
-                [firstLabel setFrame:CGRectMake(121, 480, 90, 30)];
-                firstLabel.textColor = [UIColor greenColor];
-                [self.scrollView addSubview:firstLabel];
-            }
+//            if (i == 1) { //label for first launch image
+//                UILabel *firstLabel = [[UILabel alloc]init];
+//                firstLabel.font = [UIFont fontWithName:@"Georgia" size:36];
+//                [firstLabel setText:@"Shelf The digital closet for your sneakers"];
+//                [firstLabel setFrame:CGRectMake(121, 480, 90, 30)];
+//                firstLabel.textColor = [UIColor greenColor];
+//                [self.scrollView addSubview:firstLabel];
+//            }
         }
     }
 }
