@@ -37,12 +37,15 @@
 
     self.collectionView.pagingEnabled = YES;
     [self designEnable];
+
+    [self.collectionView reloadData];
+    [self.collectionView2 reloadData];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+
     self.shoeArray = [NSArray new];
     self.shoePhotoArray = [NSMutableArray new]; // for display
     self.collectionView.hidden = NO;
@@ -55,8 +58,9 @@
     self.bigButton1.backgroundColor = [UIColor colorWithRed:0.19 green:0.14 blue:0.2 alpha:0.5];
     self.bigButton2.backgroundColor = [UIColor whiteColor];
 
-    [self.collectionView reloadData];
-    [self.collectionView2 reloadData];
+//    [self.collectionView reloadData];
+//    [self.collectionView2 reloadData];
+
 }
 
 -(void)designEnable
@@ -81,7 +85,6 @@
     self.profileButton.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
     self.profileButton.layer.cornerRadius = 5;
     self.profileButton.layer.masksToBounds = YES;
-
 
 
     self.collectionView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
@@ -128,11 +131,13 @@
 
     } else if ([segue.identifier isEqualToString:@"shoeDetailSegue1"]) {
         ShoeDetailViewController *vc = segue.destinationViewController;
+
         vc.shoe = [self.shoeArray objectAtIndex:[self.collectionView indexPathForCell:(UICollectionViewCell *)sender].row];
         vc.thisCustomer = self.thisCustomer;
 
     } else if ([segue.identifier isEqualToString:@"shoeDetailSegue2"]) {
         ShoeDetailViewController *vc = segue.destinationViewController;
+
         vc.shoe = [self.shoeArray objectAtIndex:[self.collectionView2 indexPathForCell:(UICollectionViewCell *)sender].row];
         vc.thisCustomer = self.thisCustomer;
 
@@ -199,6 +204,8 @@
 
 -(void)getShoes
 {
+    self.shoeArray = [NSArray new];
+
     PFQuery *query = [PFQuery queryWithClassName:@"Shoe"];
     [query whereKey:@"owner" equalTo:self.thisCustomer];
     [query orderByDescending:@"updatedAt"];
@@ -206,23 +213,31 @@
 
         self.shoeArray = objects;
 
+        //self.shoePhotoArray = [NSMutableArray new];
+        for (int x = 0; x < objects.count; ++x)
+             [self.shoePhotoArray addObject:[NSNull null]];
+
         for (PFObject *shoe in self.shoeArray) {
+            int x = [self.shoeArray indexOfObject:shoe];
 
             PFFile *file = [shoe objectForKey:@"Photo0"];
             [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                 if (!error) {
                     UIImage *image = [UIImage imageWithData:data];
-                    [self.shoePhotoArray addObject:image];
+                    //TODO: save it into a Dictionary with Key:objectID Value: Photo0 instead
 
-                    [self.collectionView reloadData];
-                    [self.collectionView2 reloadData];
+                    [self.shoePhotoArray replaceObjectAtIndex:x withObject:image];
+
+                    if (![self.shoePhotoArray containsObject:[NSNull null]]){
+                        [self.collectionView reloadData];
+                        [self.collectionView2 reloadData];
+                    }
                 }
 
             }];
         }
-        //trying to fix loading data problem
-        [self.collectionView reloadData];
-        [self.collectionView2 reloadData];
+
+
     }];
 }
 
@@ -240,13 +255,18 @@
 #pragma mark - unwind from Upload VC
 - (IBAction)unwindToShelfViewController:(UIStoryboardSegue *)unwindSegue
 {
-    //UploadViewController *uvc = unwindSegue.sourceViewController;
+
 }
 
 
 #pragma mark - Collection View Delegate
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+
+    if ([[self.shoePhotoArray objectAtIndex:indexPath.row] isEqual:[NSNull null]]){
+        NSLog(@"Error: Image is Null");
+    }
+
 
     //for single
     if ([collectionView isEqual:self.collectionView]) {
