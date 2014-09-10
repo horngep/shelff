@@ -40,6 +40,8 @@
 
     [self.collectionView reloadData];
     [self.collectionView2 reloadData];
+
+    self.upperView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
 }
 
 -(void)viewWillAppear:(BOOL)animated
