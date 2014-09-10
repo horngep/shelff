@@ -58,6 +58,9 @@
 
 - (IBAction)uploadButtonPressed:(id)sender
 {
+
+    [self.nameTextField resignFirstResponder];
+
     if (self.shoePics.count == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Need Picture" message:@"you need a shoe picture!" delegate:self cancelButtonTitle:@"Oops" otherButtonTitles:nil, nil];
         [alert show];

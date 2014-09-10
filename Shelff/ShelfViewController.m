@@ -86,10 +86,7 @@
 
     self.collectionView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
     self.collectionView2.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
-
-
 }
-
 
 #pragma mark - Actions
 
@@ -223,8 +220,9 @@
 
             }];
         }
-
-
+        //trying to fix loading data problem
+        [self.collectionView reloadData];
+        [self.collectionView2 reloadData];
     }];
 }
 
