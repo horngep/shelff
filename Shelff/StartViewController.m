@@ -95,7 +95,7 @@
         self.welcomeTextLabel.text = @"Welcome to Shelf";
 
     } else if (self.pageControl.currentPage == 1) {
-        self.welcomeTextLabel.text = @"Shelf is a place for you to show off your shoes collections to your friends.";
+        self.welcomeTextLabel.text = @"Shelf is a place for you to show off your shoe collections to your friends.";
 
     } else if (self.pageControl.currentPage == 2) {
         self.welcomeTextLabel.text = @"";
