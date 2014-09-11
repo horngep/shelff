@@ -533,7 +533,7 @@
 				GCC_PREFIX_HEADER = "Shelff/Shelff-Prefix.pch";
 				INFOPLIST_FILE = "Shelff/Shelff-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "65faeea5-b104-4269-b190-7e5cf7d69e0c";
+				PROVISIONING_PROFILE = "73278f0a-612a-4e77-a8e8-e623a8feca6f";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
