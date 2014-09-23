@@ -18,6 +18,9 @@
 		841F10F819B6299F0091C90F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841F10F719B6299F0091C90F /* CFNetwork.framework */; };
 		841F10FA19B629A90091C90F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841F10F919B629A90091C90F /* AudioToolbox.framework */; };
 		841F10FE19B647490091C90F /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F10FD19B647490091C90F /* UploadViewController.m */; };
+		84300AD919D109060092424E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84300AD819D109060092424E /* SettingsViewController.m */; };
+		84300ADD19D10B070092424E /* PrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84300ADC19D10B070092424E /* PrivacyViewController.m */; };
+		84300AE019D113720092424E /* TermOfUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84300ADF19D113720092424E /* TermOfUseViewController.m */; };
 		8443D98219B0C8DA008E2369 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8443D98119B0C8DA008E2369 /* Foundation.framework */; };
 		8443D98419B0C8DA008E2369 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8443D98319B0C8DA008E2369 /* CoreGraphics.framework */; };
 		8443D98619B0C8DA008E2369 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8443D98519B0C8DA008E2369 /* UIKit.framework */; };
@@ -66,6 +69,12 @@
 		841F10F919B629A90091C90F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		841F10FC19B647490091C90F /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadViewController.h; path = ../UploadViewController.h; sourceTree = "<group>"; };
 		841F10FD19B647490091C90F /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadViewController.m; path = ../UploadViewController.m; sourceTree = "<group>"; };
+		84300AD719D109060092424E /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		84300AD819D109060092424E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		84300ADB19D10B070092424E /* PrivacyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyViewController.h; sourceTree = "<group>"; };
+		84300ADC19D10B070092424E /* PrivacyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyViewController.m; sourceTree = "<group>"; };
+		84300ADE19D113720092424E /* TermOfUseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermOfUseViewController.h; sourceTree = "<group>"; };
+		84300ADF19D113720092424E /* TermOfUseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermOfUseViewController.m; sourceTree = "<group>"; };
 		8443D97E19B0C8DA008E2369 /* Shelff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shelff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8443D98119B0C8DA008E2369 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8443D98319B0C8DA008E2369 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -139,6 +148,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84300ADA19D10AF50092424E /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				84300AD719D109060092424E /* SettingsViewController.h */,
+				84300AD819D109060092424E /* SettingsViewController.m */,
+				84300ADB19D10B070092424E /* PrivacyViewController.h */,
+				84300ADC19D10B070092424E /* PrivacyViewController.m */,
+				84300ADE19D113720092424E /* TermOfUseViewController.h */,
+				84300ADF19D113720092424E /* TermOfUseViewController.m */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
 		8443D97519B0C8DA008E2369 = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +209,7 @@
 				84A72F6519B2334900F5B52F /* Sidebar */,
 				84A72F6419B2333800F5B52F /* Starting */,
 				8443D99319B0C8DA008E2369 /* Main.storyboard */,
+				84300ADA19D10AF50092424E /* Setting */,
 				8443D9CE19B21FBC008E2369 /* ShelfViewController.h */,
 				8443D9CF19B21FBC008E2369 /* ShelfViewController.m */,
 				84DF6F4F19B7B68A00BF311A /* ShoeDetailViewController.h */,
@@ -366,10 +389,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				841F10FE19B647490091C90F /* UploadViewController.m in Sources */,
+				84300AE019D113720092424E /* TermOfUseViewController.m in Sources */,
 				84A72F6E19B241AB00F5B52F /* SideBarViewController.m in Sources */,
 				84A72F6B19B23F6E00F5B52F /* FriendListViewController.m in Sources */,
 				84DF6F5119B7B68A00BF311A /* ShoeDetailViewController.m in Sources */,
 				8443D99819B0C8DA008E2369 /* LogInViewController.m in Sources */,
+				84300ADD19D10B070092424E /* PrivacyViewController.m in Sources */,
 				84AC01EC19B672C9002F0AF5 /* PFCustomer.m in Sources */,
 				8443D9D019B21FBC008E2369 /* ShelfViewController.m in Sources */,
 				84AF62FF19BCC0EA00767CC0 /* WebViewController.m in Sources */,
@@ -377,6 +402,7 @@
 				8443D9C019B123A7008E2369 /* StartViewController.m in Sources */,
 				8443D98E19B0C8DA008E2369 /* main.m in Sources */,
 				8443D9D319B22F7A008E2369 /* SWRevealViewController.m in Sources */,
+				84300AD919D109060092424E /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

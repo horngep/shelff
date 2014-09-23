@@ -48,12 +48,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //pbb dont need this
     static NSString *CellIdentifier = @"Cell";
 
     switch ( indexPath.row )
@@ -72,6 +71,10 @@
 
         case 3:
             CellIdentifier = @"cell3";
+            break;
+
+        case 4:
+            CellIdentifier = @"cell4";
             break;
 
     }
