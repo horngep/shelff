@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		841F10E819B628A50091C90F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841F10E719B628A50091C90F /* Parse.framework */; };
 		841F10EA19B629440091C90F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841F10E919B629440091C90F /* SystemConfiguration.framework */; };
-		841F10EC19B629500091C90F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841F10EB19B629500091C90F /* StoreKit.framework */; };
 		841F10EE19B6295C0091C90F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841F10ED19B6295C0091C90F /* Security.framework */; };
 		841F10F019B629680091C90F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841F10EF19B629680091C90F /* QuartzCore.framework */; };
 		841F10F219B629720091C90F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841F10F119B629720091C90F /* MobileCoreServices.framework */; };
@@ -59,7 +58,6 @@
 /* Begin PBXFileReference section */
 		841F10E719B628A50091C90F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		841F10E919B629440091C90F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		841F10EB19B629500091C90F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		841F10ED19B6295C0091C90F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		841F10EF19B629680091C90F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		841F10F119B629720091C90F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -126,7 +124,6 @@
 				841F10F419B6297D0091C90F /* libz.dylib in Frameworks */,
 				841F10F219B629720091C90F /* MobileCoreServices.framework in Frameworks */,
 				841F10EE19B6295C0091C90F /* Security.framework in Frameworks */,
-				841F10EC19B629500091C90F /* StoreKit.framework in Frameworks */,
 				841F10EA19B629440091C90F /* SystemConfiguration.framework in Frameworks */,
 				8443D9B719B0CA89008E2369 /* FacebookSDK.framework in Frameworks */,
 				8443D98619B0C8DA008E2369 /* UIKit.framework in Frameworks */,
@@ -190,7 +187,6 @@
 				841F10F119B629720091C90F /* MobileCoreServices.framework */,
 				841F10EF19B629680091C90F /* QuartzCore.framework */,
 				841F10ED19B6295C0091C90F /* Security.framework */,
-				841F10EB19B629500091C90F /* StoreKit.framework */,
 				841F10E919B629440091C90F /* SystemConfiguration.framework */,
 				841F10E719B628A50091C90F /* Parse.framework */,
 				8443D9B619B0CA89008E2369 /* FacebookSDK.framework */,
@@ -337,6 +333,11 @@
 				TargetAttributes = {
 					8443D97D19B0C8DA008E2369 = {
 						DevelopmentTeam = T729H8E5E8;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					8443D99E19B0C8DA008E2369 = {
 						TestTargetID = 8443D97D19B0C8DA008E2369;
@@ -559,7 +560,7 @@
 				GCC_PREFIX_HEADER = "Shelff/Shelff-Prefix.pch";
 				INFOPLIST_FILE = "Shelff/Shelff-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "73278f0a-612a-4e77-a8e8-e623a8feca6f";
+				PROVISIONING_PROFILE = "1c841b4d-77ad-4f5e-aa0b-7aa7f752fc96";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

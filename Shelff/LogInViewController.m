@@ -38,7 +38,6 @@
     self.fbLogInView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
 
     [self designEnable];
-
 }
 
 -(void)designEnable

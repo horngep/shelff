@@ -48,19 +48,11 @@
             nextButton.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:15];
 
             [nextButton setFrame:CGRectMake(111 + (imageView.frame.size.width *2), 120, 100, 30)];
-            nextButton.titleLabel.textColor = [UIColor colorWithRed:0 green:0.42 blue:0.85 alpha:1];
+            nextButton.titleLabel.textColor = [UIColor blackColor];
 
             [nextButton addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchDown];
             [self.scrollView addSubview:nextButton];
 
-//            if (i == 1) { //label for first launch image
-//                UILabel *firstLabel = [[UILabel alloc]init];
-//                firstLabel.font = [UIFont fontWithName:@"Georgia" size:36];
-//                [firstLabel setText:@"Shelf The digital closet for your sneakers"];
-//                [firstLabel setFrame:CGRectMake(121, 480, 90, 30)];
-//                firstLabel.textColor = [UIColor greenColor];
-//                [self.scrollView addSubview:firstLabel];
-//            }
         }
     }
 }
